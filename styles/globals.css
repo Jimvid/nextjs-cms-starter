@@ -1,3 +1,9 @@
+/* Modern normalize (https://preview.npmjs.com/package/modern-normalize) */
+@import "node_modules/modern-normalize/modern-normalize.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
