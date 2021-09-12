@@ -6,7 +6,7 @@ const Home: NextPage = ({ homePage }: any) => {
   const { seo } = homePage
 
   return (
-    <Layout pageTitle="Homepage" seo={seo}>
+    <Layout seo={seo}>
       <p>Home page</p>
     </Layout>
   )

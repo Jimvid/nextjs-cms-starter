@@ -2,18 +2,13 @@ import type { AppProps } from "next/app"
 
 import App from "next/app"
 import Head from "next/head"
-import "../styles/globals.css"
+import "../assets/css/globals.css"
 import { createContext } from "react"
 import { fetchAPI } from "../lib/api"
 import { getStrapiMedia } from "../lib/media"
 
-export interface GlobalContextProps {
-  Provider: any
-  Consumer: any
-}
-
 // Store Strapi Global object in context
-export const GlobalContext: GlobalContextProps = createContext({})
+export const GlobalContext = createContext({})
 
 const Site = ({ Component, pageProps }: AppProps) => {
   const { global } = pageProps
