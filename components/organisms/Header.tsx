@@ -21,25 +21,24 @@ const Header = () => {
   const { header } = globalContext
 
   return (
-    <header className="max-w-wrapper m-auto p-1 mt-1 flex items-center justify-between">
-      <nav className="flex">
-        <a href="/" className="flex">
+    <header>
+      <nav>
+        <a href="/">
           <Image src={getStrapiMedia(header.logotype)} height={32} width={32} />
         </a>
-        <ul className="flex">
-          <li className="mr-2 flex"></li>
-          <li className="mr-2 flex">
+        <ul>
+          <li>
             <Link href="/Link">Menu item 1</Link>
           </li>
-          <li className="mr-2 flex">
+          <li>
             <Link href="/Link">Menu item 2</Link>
           </li>
-          <li className="mr-2 flex">
+          <li>
             <Link href="/Link">Menu item 3</Link>
           </li>
         </ul>
       </nav>
-      <div className="flex">
+      <div>
         <a href={`tel:${header.phone}`}>
           <Icon icon="phone" />
         </a>

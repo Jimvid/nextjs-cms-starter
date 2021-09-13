@@ -20,12 +20,10 @@ const Footer = () => {
   console.log(text)
 
   return (
-    <footer className="bg-black text-white pt-6 pb-6">
-      <div className="max-w-wrapper m-auto">
+    <footer>
+      <div>
         <Image src={getStrapiMedia(logotype)} width={32} height={32} />
-        <Title className="mb-0 mt-0" size="h5">
-          {title}
-        </Title>
+        <Title size="h5">{title}</Title>
         <p>{text}</p>
       </div>
     </footer>

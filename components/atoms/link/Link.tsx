@@ -9,9 +9,9 @@ interface Props {
 
 const Link = ({ href, children, icon = false }: Props) => {
   return (
-    <div className="flex items-center">
+    <div>
       <NextLink href={href}>{children}</NextLink>
-      {icon && <Icon className="ml-2" icon={icon} />}
+      {icon && <Icon icon={icon} />}
     </div>
   )
 }

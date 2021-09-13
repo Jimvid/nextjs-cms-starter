@@ -1,8 +1,8 @@
 import type { AppProps } from "next/app"
-
+import "modern-normalize/modern-normalize.css"
+import "../assets/css/globals.scss"
 import App from "next/app"
 import Head from "next/head"
-import "../assets/css/globals.css"
 import { createContext } from "react"
 import { fetchAPI } from "../lib/api"
 import { getStrapiMedia } from "../lib/media"
