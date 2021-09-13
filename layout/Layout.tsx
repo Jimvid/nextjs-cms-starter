@@ -1,6 +1,6 @@
 import React from "react"
-import Header from "components/organisms/Header"
-import Footer from "components/organisms/Footer"
+import Header from "components/organisms/header/Header"
+import Footer from "components/organisms/footer/Footer"
 import Seo from "./Seo"
 
 interface LayoutProps {

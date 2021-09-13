@@ -1,6 +1,12 @@
 import { getStrapiURL } from "./api"
 
-export function getStrapiMedia(media: any) {
+interface Media {
+  url: string
+}
+
+export function getStrapiMedia(media: Media) {
+  if (!media?.url) return ""
+
   const imageUrl = media.url.startsWith("/")
     ? getStrapiURL(media.url)
     : media.url

@@ -28,13 +28,10 @@ const Header = () => {
         </a>
         <ul>
           <li>
-            <Link href="/Link">Menu item 1</Link>
+            <Link href="/">Home</Link>
           </li>
           <li>
-            <Link href="/Link">Menu item 2</Link>
-          </li>
-          <li>
-            <Link href="/Link">Menu item 3</Link>
+            <Link href="/about">About</Link>
           </li>
         </ul>
       </nav>

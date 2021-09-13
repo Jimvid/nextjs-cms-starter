@@ -17,7 +17,6 @@ const Footer = () => {
   const {
     footer: { logotype, title, text },
   } = globalContext
-  console.log(text)
 
   return (
     <footer>

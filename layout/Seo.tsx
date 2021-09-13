@@ -2,7 +2,6 @@ import Head from "next/head"
 import { useContext } from "react"
 import { GlobalContext } from "../pages/_app"
 import { getStrapiMedia } from "../lib/media"
-import { GlobalContextProps } from "pages/_app"
 
 interface SeoProps {
   seo: SeoDetails
@@ -14,13 +13,13 @@ interface SeoDetails {
   shareImage: {}
 }
 
-interface Seo extends GlobalContextProps {
+interface Seo {
   defaultSeo: SeoDetails
   siteName: string
 }
 
 const Seo = ({ seo }: SeoProps) => {
-  const { defaultSeo, siteName }: Seo = useContext(GlobalContext)
+  const { defaultSeo, siteName }: any = useContext(GlobalContext)
   const seoWithDefaults = {
     ...defaultSeo,
     ...seo,
