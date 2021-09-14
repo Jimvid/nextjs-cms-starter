@@ -1,0 +1,18 @@
+.footer {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 3rem 0 2rem 0;
+
+  &__image {
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    margin-bottom: 0.5rem;
+  }
+
+  &__text {
+    max-width: 680px;
+    margin-bottom: 0;
+  }
+}

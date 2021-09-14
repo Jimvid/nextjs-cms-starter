@@ -1,11 +1,13 @@
 import type { AppProps } from "next/app"
-import "modern-normalize/modern-normalize.css"
-import "../assets/css/globals.scss"
 import App from "next/app"
 import Head from "next/head"
 import { createContext } from "react"
 import { fetchAPI } from "../lib/api"
 import { getStrapiMedia } from "../lib/media"
+import "modern-normalize/modern-normalize.css"
+import "../assets/css/globals.scss"
+import "../assets/css/variables.scss"
+import "../assets/css/utils.scss"
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({})

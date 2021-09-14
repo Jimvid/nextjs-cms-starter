@@ -1,14 +1,18 @@
 import { useContext } from "react"
 import { GlobalContext } from "pages/_app"
 import { getStrapiMedia } from "lib/media"
-import Image from "next/image"
+import Image from "components/atoms/image/Image"
 import Title from "components/atoms/title/Title"
+import S from "./footer.module.scss"
 
+// Types
 interface Props {
   footer: {
     title: string
     text: string
-    logotype: {}
+    logotype: {
+      url: string
+    }
   }
 }
 
@@ -19,11 +23,18 @@ const Footer = () => {
   } = globalContext
 
   return (
-    <footer>
-      <div>
-        <Image src={getStrapiMedia(logotype)} width={32} height={32} />
-        <Title size="h5">{title}</Title>
-        <p>{text}</p>
+    <footer className={S.footer}>
+      <div className="inner">
+        <Image
+          className={S.footer__image}
+          src={getStrapiMedia(logotype)}
+          width={32}
+          height={32}
+        />
+        <Title className={S.footer__title} size="h5">
+          {title}
+        </Title>
+        <p className={S.footer__text}>{text}</p>
       </div>
     </footer>
   )

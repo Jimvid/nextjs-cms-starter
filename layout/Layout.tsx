@@ -13,7 +13,7 @@ const Layout = ({ children, seo }: LayoutProps) => {
     <>
       <Seo seo={seo} />
       <Header />
-      <main className="max-w-wrapper m-auto p-1">{children}</main>
+      <main className="inner section">{children}</main>
       <Footer />
     </>
   )
