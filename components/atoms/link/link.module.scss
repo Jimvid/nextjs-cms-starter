@@ -1,0 +1,16 @@
+.link {
+  color: var(--brand-color);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+
+  &__text {
+    margin-right: 0.5rem;
+  }
+
+  &__icon {
+    > * {
+      fill: var(--brand-color);
+    }
+  }
+}

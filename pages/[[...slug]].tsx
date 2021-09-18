@@ -1,10 +1,11 @@
-import { fetchAPI, getData, notFound, getLocalizedParams } from "lib/api"
-import Layout from "layout/Layout"
+import { getData, notFound, getLocalizedParams } from "lib/api"
+import DynamicZone from "components/shared/DynamicZone"
+import Layout from "components/shared/Layout"
 
-const Universals = ({ pageData }: any) => {
+const DynamicBlock = ({ pageData }: any) => {
   return (
     <Layout seo={pageData.seo}>
-      <div>{pageData.title}</div>
+      <DynamicZone components={pageData.dynamicZone} />
     </Layout>
   )
 }
@@ -26,4 +27,4 @@ export async function getServerSideProps(context: any) {
   }
 }
 
-export default Universals
+export default DynamicBlock

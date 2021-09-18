@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { GlobalContext } from "pages/_app"
 import { getStrapiMedia } from "lib/media"
 import Image from "next/image"
-import Link from "components/atoms/link/Link"
+import Link from "next/link"
 import S from "./header.module.scss"
 
 //  types
