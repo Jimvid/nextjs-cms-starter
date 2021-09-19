@@ -1,12 +1,5 @@
 import React from "react"
 
-// Types
-export interface IconProps {
-  className?: string
-  role?: string
-  icon?: string | boolean
-}
-
 export const Icon: React.FC<IconProps> = (p) => {
   let svg = null
   switch (p.icon) {
@@ -81,6 +74,13 @@ export const Icon: React.FC<IconProps> = (p) => {
   }
 
   return svg
+}
+
+// Types
+export interface IconProps {
+  className?: string
+  role?: string
+  icon?: string | boolean
 }
 
 export default Icon

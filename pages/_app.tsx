@@ -32,10 +32,26 @@ const Site = ({ Component, pageProps }: AppProps) => {
 Site.getInitialProps = async (context: any) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(context)
+
   // Fetch global site settings from Strapi
-  const global = await fetchAPI("/global")
+  const strapiGlobal = await fetchAPI("/global")
+
+  // Fetch alla pages and return those that
+  // should be displayed in the menu
+  const pages = await fetchAPI("/pages")
+
+  const menu = pages.filter((menuLink: MenuLink) => menuLink.inMenu)
+
+  const global = { ...strapiGlobal, menu }
   // Pass the data to our page via props
   return { ...appProps, pageProps: { global } }
+}
+
+// Types
+interface MenuLink {
+  inMenu: boolean
+  slug: string
+  title: string
 }
 
 export default Site

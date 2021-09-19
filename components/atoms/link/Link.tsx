@@ -2,12 +2,6 @@ import NextLink from "next/link"
 import Icon from "components/atoms/icon/Icon"
 import S from "./link.module.scss"
 
-interface Props {
-  href: string
-  children: string
-  icon?: string | boolean
-}
-
 const Link = ({ href, children, icon = true }: Props) => {
   return (
     <NextLink href={href}>
@@ -17,6 +11,12 @@ const Link = ({ href, children, icon = true }: Props) => {
       </a>
     </NextLink>
   )
+}
+
+interface Props {
+  href: string
+  children: string
+  icon?: string | boolean
 }
 
 export default Link

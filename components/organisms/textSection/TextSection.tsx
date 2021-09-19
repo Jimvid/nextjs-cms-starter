@@ -5,20 +5,6 @@ import Image from "components/atoms/image/Image"
 import S from "./textSection.module.scss"
 import { getStrapiMedia } from "lib/media"
 
-export interface Props {
-  title: string
-  text: string
-  link: {
-    label: string
-    url: string
-  }
-  image: {
-    url: string
-    width: number
-    height: number
-  }
-}
-
 const TextSection = ({ title, text, image, link }: Props) => (
   <section className={`section ${S.section}`}>
     <div className={S.section__content}>
@@ -36,5 +22,19 @@ const TextSection = ({ title, text, image, link }: Props) => (
     )}
   </section>
 )
+
+export interface Props {
+  title: string
+  text: string
+  link: {
+    label: string
+    url: string
+  }
+  image: {
+    url: string
+    width: number
+    height: number
+  }
+}
 
 export default TextSection

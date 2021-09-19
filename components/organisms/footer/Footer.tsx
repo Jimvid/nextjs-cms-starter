@@ -5,17 +5,6 @@ import Image from "components/atoms/image/Image"
 import Title from "components/atoms/title/Title"
 import S from "./footer.module.scss"
 
-// Types
-interface Props {
-  footer: {
-    title: string
-    text: string
-    logotype: {
-      url: string
-    }
-  }
-}
-
 const Footer = () => {
   const globalContext = useContext(GlobalContext) as Props
   const {
@@ -34,10 +23,21 @@ const Footer = () => {
         <Title className={S.footer__title} size="h5">
           {title}
         </Title>
-        <p className={S.footer__text}>{text}</p>
+        <p className={`body-small ${S.footer__text}`}>{text}</p>
       </div>
     </footer>
   )
+}
+
+// Types
+interface Props {
+  footer: {
+    title: string
+    text: string
+    logotype: {
+      url: string
+    }
+  }
 }
 
 export default Footer

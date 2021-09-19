@@ -3,11 +3,6 @@ import Header from "components/organisms/header/Header"
 import Footer from "components/organisms/footer/Footer"
 import Seo, { SeoDetails } from "./Seo"
 
-interface LayoutProps {
-  seo: SeoDetails
-  children: JSX.Element | JSX.Element[]
-}
-
 const Layout = ({ children, seo }: LayoutProps) => {
   return (
     <>
@@ -17,6 +12,11 @@ const Layout = ({ children, seo }: LayoutProps) => {
       <Footer />
     </>
   )
+}
+
+interface LayoutProps {
+  seo: SeoDetails
+  children: JSX.Element | JSX.Element[]
 }
 
 export default Layout

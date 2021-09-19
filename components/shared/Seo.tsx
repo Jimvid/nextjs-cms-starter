@@ -3,17 +3,6 @@ import { useContext } from "react"
 import { GlobalContext } from "pages/_app"
 import { getStrapiMedia } from "lib/media"
 
-export interface SeoDetails {
-  metaDescription: string
-  metaTitle: string
-  shareImage: {}
-}
-
-interface Seo {
-  defaultSeo: SeoDetails
-  siteName: string
-}
-
 const Seo = (seo: SeoDetails) => {
   const { defaultSeo, siteName }: any = useContext(GlobalContext)
   const seoWithDefaults = {
@@ -52,6 +41,17 @@ const Seo = (seo: SeoDetails) => {
       )}
     </Head>
   )
+}
+
+export interface SeoDetails {
+  metaDescription: string
+  metaTitle: string
+  shareImage: {}
+}
+
+interface Seo {
+  defaultSeo: SeoDetails
+  siteName: string
 }
 
 export default Seo
