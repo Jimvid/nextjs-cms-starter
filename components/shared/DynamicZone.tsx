@@ -2,13 +2,17 @@ import React, { Fragment } from "react"
 import TextSection, {
   Props as TextSectionProps,
 } from "components/organisms/textSection/TextSection"
+import BlogPostList, {
+  BlogPostListProps,
+} from "components/organisms/blogPostList/BlogPostList"
 
 // Check which component that should be rendered
 const Dynamic = (p: Component) => {
   switch (p.__component) {
     case "organisms.text-image-section":
       return <TextSection {...p} />
-
+    case "organisms.postlist":
+      return <BlogPostList {...p} />
     default:
       return null
   }
@@ -28,7 +32,7 @@ interface Props {
   components: any[]
 }
 
-interface Component extends TextSectionProps {
+interface Component extends TextSectionProps, BlogPostListProps {
   id: string
   __component: string
 }

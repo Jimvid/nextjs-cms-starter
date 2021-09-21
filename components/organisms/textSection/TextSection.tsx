@@ -1,7 +1,7 @@
 import React from "react"
 import Link from "components/atoms/link/Link"
 import Title from "components/atoms/title/Title"
-import Image from "components/atoms/image/Image"
+import Image from "next/image"
 import S from "./textSection.module.scss"
 import { getStrapiMedia } from "lib/media"
 

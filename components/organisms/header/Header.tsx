@@ -8,14 +8,11 @@ import S from "./header.module.scss"
 const Header = () => {
   const globalContext = useContext(GlobalContext) as Props
   const { header, menu } = globalContext
-  console.log(menu)
 
-  const menuLinks = menu.sort(
-    (a, b) => parseFloat(a.menuOrder) - parseFloat(b.menuOrder)
-  )
-
-  console.log(menu)
-  console.log(menuLinks)
+  // Ordering the menu links
+  const menuLinks = menu.sort((a, b) => {
+    return parseFloat(a.menuOrder) - parseFloat(b.menuOrder)
+  })
 
   return (
     <header className={`inner section ${S.header}`}>
@@ -30,7 +27,7 @@ const Header = () => {
           </a>
         </Link>
         <ul className={S.navbar__list}>
-          {menu.map((m: MenuItem) => (
+          {menuLinks.map((m: MenuItem) => (
             <li key={m.slug} className={S.navbar__list__item}>
               <Link href={m.slug}>{m.title}</Link>
             </li>

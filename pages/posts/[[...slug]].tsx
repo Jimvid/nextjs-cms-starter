@@ -1,35 +1,41 @@
-import { getPages, notFound, getLocalizedParams } from "lib/api"
-import { SeoDetails } from "components/shared/Seo"
+import { getPosts, notFound, getLocalizedParams } from "lib/api"
 import DynamicZone from "components/shared/DynamicZone"
 import Layout from "components/shared/Layout"
+import { SeoDetails } from "components/shared/Seo"
 
-const DynamicBlock = ({ pageData }: Props) => {
+const DynamicBlock = ({ postData }: Props) => {
+  const { seo } = postData
+
   return (
-    <Layout seo={pageData.seo}>
-      <DynamicZone components={pageData.dynamicZone} />
+    <Layout seo={seo}>
+      <div>dasd</div>
     </Layout>
   )
 }
 
 export async function getServerSideProps(context: any) {
   const { slug } = getLocalizedParams(context.query)
+  console.log(slug)
 
   try {
-    const data = getPages(slug)
+    const data = getPosts(slug)
+
     const res = await fetch(data.data)
     const json = await res.json()
 
     if (!json.length) return notFound()
-    const pageData = json[0]
+    const postData = json[0]
+    console.log(postData)
 
-    return { props: { pageData } }
+    return { props: { postData } }
   } catch (error) {
     console.log(error)
   }
+  return { props: {} }
 }
 
 interface Props {
-  pageData: {
+  postData: {
     seo: SeoDetails
     dynamicZone: any[]
   }

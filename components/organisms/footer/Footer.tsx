@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { GlobalContext } from "pages/_app"
 import { getStrapiMedia } from "lib/media"
-import Image from "components/atoms/image/Image"
+import Image from "next/image"
 import Title from "components/atoms/title/Title"
 import S from "./footer.module.scss"
 
