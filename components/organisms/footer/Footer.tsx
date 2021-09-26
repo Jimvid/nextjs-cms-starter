@@ -14,12 +14,14 @@ const Footer = () => {
   return (
     <footer className={S.footer}>
       <div className="inner">
-        <Image
-          className={S.footer__image}
-          src={getStrapiMedia(logotype)}
-          width={32}
-          height={32}
-        />
+        {logotype && (
+          <Image
+            className={S.footer__image}
+            src={getStrapiMedia(logotype)}
+            width={32}
+            height={32}
+          />
+        )}
         <Title className={S.footer__title} size="h5">
           {title}
         </Title>

@@ -15,7 +15,7 @@ const Layout = ({ children, seo }: LayoutProps) => {
 }
 
 interface LayoutProps {
-  seo: SeoDetails
+  seo?: SeoDetails
   children: JSX.Element | JSX.Element[]
 }
 

@@ -4,6 +4,8 @@ import DynamicZone from "components/shared/DynamicZone"
 import Layout from "components/shared/Layout"
 
 const DynamicBlock = ({ pageData }: Props) => {
+  console.log(pageData)
+
   return (
     <Layout seo={pageData.seo}>
       <DynamicZone components={pageData.dynamicZone} />

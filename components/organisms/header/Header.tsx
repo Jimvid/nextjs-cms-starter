@@ -19,11 +19,13 @@ const Header = () => {
       <nav className={S.navbar}>
         <Link href="/">
           <a className={S.navbar__logotype}>
-            <Image
-              src={getStrapiMedia(header.logotype)}
-              height={32}
-              width={32}
-            />
+            {header.logotype && (
+              <Image
+                src={getStrapiMedia(header.logotype)}
+                height={32}
+                width={32}
+              />
+            )}
           </a>
         </Link>
         <ul className={S.navbar__list}>

@@ -6,14 +6,16 @@ import BlogPost, {
 } from "components/molecules/blogPost/BlogPost"
 import S from "./blogPostList.module.scss"
 
-const BlogPostList = ({ title, text, posts }: BlogPostListProps) => {
+const BlogPostList = ({ title, text, posts }: Props) => {
   // TODO: If posts is empty fetch all posts
   return (
     <section>
-      <div className={S.sectionIntro}>
-        <Title size="h2">{title}</Title>
-        {text && <p>{text}</p>}
-      </div>
+      {title && (
+        <div className={S.sectionIntro}>
+          <Title size="h2">{title}</Title>
+          {text && <p>{text}</p>}
+        </div>
+      )}
       <ul>
         {posts.map((post: BlogPostProps, index) => (
           <li key={`blog-post-${index}`}>
@@ -26,9 +28,9 @@ const BlogPostList = ({ title, text, posts }: BlogPostListProps) => {
   )
 }
 
-export interface BlogPostListProps {
-  title: string
-  text: string
+export interface Props {
+  title?: string
+  text?: string
   posts: BlogPostProps[]
 }
 

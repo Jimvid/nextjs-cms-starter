@@ -18,7 +18,7 @@ const Site = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <Head>
-        <link rel="shortcut icon" href={getStrapiMedia(global.favicon)} />
+        <link rel="shortcut icon" href={getStrapiMedia(global.favicon) || ""} />
       </Head>
       <GlobalContext.Provider value={global}>
         <Component {...pageProps} />
@@ -40,7 +40,9 @@ Site.getInitialProps = async (context: any) => {
   // should be displayed in the menu
   const pages = await fetchAPI("/pages")
 
-  const menu = pages.filter((menuLink: MenuLink) => menuLink.inMenu)
+  const menu = Array.isArray(pages)
+    ? pages.filter((menuLink: MenuLink) => menuLink.inMenu)
+    : []
 
   const global = { ...strapiGlobal, menu }
   // Pass the data to our page via props

@@ -5,6 +5,7 @@ import { getStrapiMedia } from "lib/media"
 
 const Seo = (seo: SeoDetails) => {
   const { defaultSeo, siteName }: any = useContext(GlobalContext)
+
   const seoWithDefaults = {
     ...defaultSeo,
     ...seo,
@@ -44,9 +45,9 @@ const Seo = (seo: SeoDetails) => {
 }
 
 export interface SeoDetails {
-  metaDescription: string
-  metaTitle: string
-  shareImage: {}
+  metaDescription?: string
+  metaTitle?: string
+  shareImage?: {}
 }
 
 interface Seo {

@@ -3,7 +3,7 @@ import TextSection, {
   Props as TextSectionProps,
 } from "components/organisms/textSection/TextSection"
 import BlogPostList, {
-  BlogPostListProps,
+  Props as BlogPostListProps,
 } from "components/organisms/blogPostList/BlogPostList"
 
 // Check which component that should be rendered
@@ -11,7 +11,7 @@ const Dynamic = (p: Component) => {
   switch (p.__component) {
     case "organisms.text-image-section":
       return <TextSection {...p} />
-    case "organisms.postlist":
+    case "organisms.post-list":
       return <BlogPostList {...p} />
     default:
       return null
@@ -22,7 +22,9 @@ const Dynamic = (p: Component) => {
 const DynamicZone = ({ components }: Props) => (
   <Fragment>
     {components.map((component: Component) => {
-      return <Dynamic key={component.id} {...component} />
+      return (
+        <Dynamic key={component.__component + component.id} {...component} />
+      )
     })}
   </Fragment>
 )

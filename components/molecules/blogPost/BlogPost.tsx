@@ -29,6 +29,7 @@ const BlogPost = ({ title, shortText, image, slug }: Props) => {
 export default BlogPost
 
 export interface Props {
+  id?: string
   title: string
   shortText: string
   slug: string
