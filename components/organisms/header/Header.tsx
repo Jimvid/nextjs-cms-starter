@@ -18,19 +18,17 @@ const Header = () => {
     <header className={`inner section ${S.header}`}>
       <nav className={S.navbar}>
         <Link href="/">
-          <a className={S.navbar__logotype}>
-            {header.logotype && (
-              <Image
-                src={getStrapiMedia(header.logotype)}
-                height={32}
-                width={32}
-              />
-            )}
+          <a className={S.image}>
+            <Image
+              src={getStrapiMedia(header.logotype) || "/site-logo.svg"}
+              height={32}
+              width={32}
+            />
           </a>
         </Link>
-        <ul className={S.navbar__list}>
+        <ul className={S.list}>
           {menuLinks.map((m: MenuItem) => (
-            <li key={m.slug} className={S.navbar__list__item}>
+            <li key={m.slug} className={S.list__item}>
               <Link href={m.slug}>{m.title}</Link>
             </li>
           ))}

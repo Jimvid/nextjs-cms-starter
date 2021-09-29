@@ -5,23 +5,25 @@
 .navbar {
   display: flex;
   align-items: center;
+}
 
-  &__logotype {
-    margin-right: 2rem;
-    display: flex;
-  }
+// Logotype
+.image {
+  margin-right: 2rem;
+  display: flex;
+}
 
-  &__list {
-    display: flex;
-    align-items: center;
+// Menu links
+.list {
+  display: flex;
+  align-items: center;
+}
 
-    &__item {
-      list-style: none;
-      margin-right: 2rem;
+.list__item {
+  list-style: none;
+  margin-right: 2rem;
 
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+  &:hover {
+    text-decoration: underline;
   }
 }
