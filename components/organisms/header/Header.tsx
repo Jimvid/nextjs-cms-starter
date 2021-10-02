@@ -1,4 +1,5 @@
 import { useContext } from "react"
+import { useRouter } from "next/router"
 import { GlobalContext } from "pages/_app"
 import { getStrapiMedia } from "lib/media"
 import Image from "next/image"
@@ -14,6 +15,14 @@ const Header = () => {
     return parseFloat(a.menuOrder) - parseFloat(b.menuOrder)
   })
 
+  // Highlight link in menu if page is visited
+  const highlightLink = (slug: any) => {
+    const regex = new RegExp(`^${slug}$`)
+    const hasMatch = useRouter().asPath.match(regex)
+
+    return hasMatch && hasMatch[0] === slug ? S.active_list__item : S.list__item
+  }
+
   return (
     <header className={`inner section ${S.header}`}>
       <nav className={S.navbar}>
@@ -28,7 +37,7 @@ const Header = () => {
         </Link>
         <ul className={S.list}>
           {menuLinks.map((m: MenuItem) => (
-            <li key={m.slug} className={S.list__item}>
+            <li key={m.slug} className={highlightLink(m.slug)}>
               <Link href={m.slug}>{m.title}</Link>
             </li>
           ))}
