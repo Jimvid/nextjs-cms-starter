@@ -5,8 +5,6 @@ import BlogPostList, {
 import Layout from "components/shared/Layout"
 
 const index = ({ posts }: BlogPostListProps) => {
-  console.log(posts)
-
   return (
     <Layout>
       <BlogPostList title={"Det senaste från Antikens"} posts={posts} />

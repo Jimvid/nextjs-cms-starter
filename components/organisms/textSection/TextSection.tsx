@@ -4,12 +4,13 @@ import Title from "components/atoms/title/Title"
 import Image from "next/image"
 import S from "./textSection.module.scss"
 import { getStrapiMedia } from "lib/media"
+import Markdown from "react-markdown"
 
 const TextSection = ({ title, text, image, link }: Props) => (
   <section className={`section ${S.section}`}>
     <div className={S.section__content}>
       <Title size="h2">{title}</Title>
-      <p>{text}</p>
+      <Markdown>{text}</Markdown>
       {link && <Link href={link.url}>{link.label}</Link>}
     </div>
     {image && (

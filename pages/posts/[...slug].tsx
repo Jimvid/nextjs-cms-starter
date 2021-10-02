@@ -1,3 +1,4 @@
+import Markdown from "react-markdown"
 import { getPosts, notFound, getLocalizedParams, getStrapiMedia } from "lib/api"
 import Title from "components/atoms/title/Title"
 import Image from "next/image"
@@ -7,13 +8,12 @@ import S from "./root.module.scss"
 
 const DynamicBlock = ({ postData }: Props) => {
   const { title, shortText, longText, seo, image } = postData
-  console.log(postData)
 
   return (
     <Layout seo={seo}>
       <section className="inner">
         <Title size="h2">{title}</Title>
-        <p>{shortText}</p>
+        <Markdown>{shortText}</Markdown>
         {image?.url && (
           <div className={S.imageWrapper}>
             <Image
@@ -24,7 +24,7 @@ const DynamicBlock = ({ postData }: Props) => {
             />
           </div>
         )}
-        <p>{longText}</p>
+        <Markdown>{longText}</Markdown>
       </section>
     </Layout>
   )
@@ -32,7 +32,6 @@ const DynamicBlock = ({ postData }: Props) => {
 
 export async function getServerSideProps(context: any) {
   const { slug } = getLocalizedParams(context.query)
-  console.log(slug)
 
   try {
     const data = getPosts(slug)
@@ -42,7 +41,6 @@ export async function getServerSideProps(context: any) {
 
     if (!json.length) return notFound()
     const postData = json[0]
-    console.log(postData)
 
     return { props: { postData } }
   } catch (error) {

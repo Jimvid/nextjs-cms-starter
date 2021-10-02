@@ -3,13 +3,14 @@ import { getStrapiMedia } from "lib/api"
 import Image from "next/image"
 import Link from "components/atoms/link/Link"
 import S from "./blogpost.module.scss"
+import Markdown from "react-markdown"
 
 const BlogPost = ({ title, shortText, image, slug }: Props) => {
   return (
     <article className={S.blogPost}>
       <div className={S.blogPostContent}>
         <h3 className={S.title}>{title}</h3>
-        <p className={S.text}>{shortText}</p>
+        <Markdown className={S.text}>{shortText}</Markdown>
         <Link href={`/posts${slug}`}>Läs mer</Link>
       </div>
       {image?.url && (
