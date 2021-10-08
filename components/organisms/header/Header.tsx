@@ -24,7 +24,7 @@ const Header = () => {
   }
 
   return (
-    <header className={`inner section ${S.header}`}>
+    <header className={`inner ${S.header}`}>
       <nav className={S.navbar}>
         <Link href="/">
           <a className={S.image}>
