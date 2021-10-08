@@ -6,12 +6,25 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+body {
+  position: relative;
+  min-height: calc(100vh - 32px);
+  display: block;
+  position: relative;
+  padding-bottom: 244px; /* footer height*/
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
 * {
+  box-sizing: border-box;
+}
+
+*:before,
+*:after {
   box-sizing: border-box;
 }
 
