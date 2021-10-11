@@ -46,7 +46,7 @@ export const getLocalizedParams = (query: Query) => {
   return { slug: query.slug || "", locale: query.lang || "en" }
 }
 
-// This function will build the url to fetch on the Strapi API
+// Build the url to fetch pages from the Strapi API
 export const getPages = (slug: string) => {
   const slugToReturn = `/${slug}`
   const apiUrl = `/pages?slug=/${slug}`
@@ -57,7 +57,7 @@ export const getPages = (slug: string) => {
   }
 }
 
-// This function will build the url to fetch on the Strapi API
+// Build the url to fetch posts from the Strapi API
 export const getPosts = (slug: string) => {
   const slugToReturn = `/${slug}`
   const apiUrl = `/posts?slug=/${slug}`
