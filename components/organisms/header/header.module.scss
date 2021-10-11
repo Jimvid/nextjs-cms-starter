@@ -3,19 +3,20 @@
 // Header
 .header {
   position: relative;
-  margin-top: 1rem;
-  margin-bottom: 6rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
   width: 100%;
 
   @include breakpoints.size(large) {
     margin-top: 2rem;
+    margin-bottom: 6rem;
   }
 }
 
 // Navbar
 .navbar {
   position: absolute;
-  top: -1rem;
+  top: -1.5rem;
   z-index: 99;
   width: 100%;
   display: flex;
@@ -29,8 +30,7 @@
   transition-property: transform;
   padding: 2rem;
   padding-top: 5rem;
-  box-shadow: 0px 16px 20px rgba(0, 0, 0, 0.05), 0px 8px 12px rgba(0, 0, 0, 0.1),
-    0px 1px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--elevation);
 
   &.active {
     transition: ease 0.3s;
@@ -46,6 +46,8 @@
   }
 
   @include breakpoints.size(large) {
+    position: relative;
+    top: 0;
     flex-direction: row;
     transform: none;
     padding: 0;

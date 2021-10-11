@@ -1,3 +1,5 @@
+@use "breakpoints";
+
 // Grid width
 .inner {
   width: 100%;
@@ -8,7 +10,11 @@
 
 // space between each section on a page
 .section {
-  margin-bottom: 12rem;
+  margin-bottom: 2rem;
+
+  @include breakpoints.size("large") {
+    margin-bottom: 12rem;
+  }
 }
 
 .body-small {
