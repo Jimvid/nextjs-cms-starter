@@ -1,7 +1,14 @@
+@use "assets/css/breakpoints";
+
 .divider {
   height: 2px;
   width: 100%;
   background-color: #ebebeb;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  @include breakpoints.size("large") {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+  }
 }
