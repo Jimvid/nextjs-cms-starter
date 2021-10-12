@@ -19,7 +19,7 @@ const TextSection = ({ title, text, image, link }: Props) => {
         {link && <Link href={link.url}>{link.label}</Link>}
       </div>
       {image && (
-        <div className={S.imageWrapper}>
+        <div className={`${S.imageWrapper} decorated-image`}>
           <Image src={getStrapiMedia(image)} layout="fill" objectFit="cover" />
         </div>
       )}
