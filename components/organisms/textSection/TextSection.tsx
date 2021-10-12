@@ -6,23 +6,26 @@ import S from "./textSection.module.scss"
 import { getStrapiMedia } from "lib/media"
 import Markdown from "react-markdown"
 
-const TextSection = ({ title, text, image, link }: Props) => (
-  <section className={`section ${S.section}`}>
-    <div className={S.section__content}>
-      <Title size="h2">{title}</Title>
-      <Markdown>{text}</Markdown>
-      {link && <Link href={link.url}>{link.label}</Link>}
-    </div>
-    {image && (
-      <Image
-        className={S.section__content__image}
-        src={getStrapiMedia(image)}
-        width={image.width}
-        height={image.height}
-      />
-    )}
-  </section>
-)
+const TextSection = ({ title, text, image, link }: Props) => {
+  const hasImage = image ? S.has__image : ""
+
+  return (
+    <section className={`section ${S.section} ${hasImage}`}>
+      <div className={S.content}>
+        <Title className={S.title} size="h2">
+          {title}
+        </Title>
+        <Markdown>{text}</Markdown>
+        {link && <Link href={link.url}>{link.label}</Link>}
+      </div>
+      {image && (
+        <div className={S.imageWrapper}>
+          <Image src={getStrapiMedia(image)} layout="fill" objectFit="cover" />
+        </div>
+      )}
+    </section>
+  )
+}
 
 export interface Props {
   title: string
@@ -31,7 +34,7 @@ export interface Props {
     label: string
     url: string
   }
-  image: {
+  image?: {
     url: string
     width: number
     height: number

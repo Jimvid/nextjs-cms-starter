@@ -1,12 +1,19 @@
 .section {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: 3rem;
+  grid-row-gap: 2rem;
 
-  &__content {
-    flex: 4;
-    padding-right: 3rem;
-
-    &__image {
-      flex: 3;
-    }
+  &.has__image {
+    grid-template-columns: repeat(auto-fill, minmax(calc(520px - 3rem), 1fr));
   }
+}
+
+.title {
+  max-width: 650px;
+}
+
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 16/9;
 }
