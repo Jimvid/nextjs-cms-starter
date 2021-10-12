@@ -10,7 +10,7 @@
 
 // space between each section on a page
 .section {
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 
   @include breakpoints.size("large") {
     margin-bottom: 10rem;
