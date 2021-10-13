@@ -5,6 +5,7 @@ import TextSection, {
 import BlogPostList, {
   Props as BlogPostListProps,
 } from "components/organisms/blogPostList/BlogPostList"
+import CardList, { Props as CardListProps } from "components/organisms/cardList"
 
 // Check which component that should be rendered
 const Dynamic = (p: Component) => {
@@ -13,6 +14,8 @@ const Dynamic = (p: Component) => {
       return <TextSection {...p} />
     case "organisms.post-list":
       return <BlogPostList {...p} />
+    case "organisms.card-list":
+      return <CardList {...p} />
     default:
       return null
   }
@@ -34,7 +37,8 @@ interface Props {
   components: any[]
 }
 
-interface Component extends TextSectionProps, BlogPostListProps {
+// TODO: This error needs to be looked into
+interface Component extends TextSectionProps, BlogPostListProps, CardListProps {
   id: string
   __component: string
 }

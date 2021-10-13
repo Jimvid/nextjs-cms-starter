@@ -1,0 +1,12 @@
+.head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 3rem;
+  margin-bottom: 2.5rem;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(268px, 1fr));
+  grid-gap: 1.5rem;
+}
