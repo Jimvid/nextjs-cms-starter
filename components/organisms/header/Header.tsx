@@ -64,7 +64,7 @@ const Header = () => {
           {menuLinks?.map((m: MenuItem) => (
             <li
               key={m.slug}
-              className={`${S.list__item} ${highlightLink(m.slug)}`}
+              className={`underline ${S.list__item} ${highlightLink(m.slug)}`}
               onClick={isMenuOpen}
             >
               <Link href={m.slug}>{m.title}</Link>

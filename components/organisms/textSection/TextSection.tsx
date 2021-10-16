@@ -13,9 +13,7 @@ const TextSection = ({ title, text, image, link, reversed }: Props) => {
   return (
     <section className={`section ${isReversed} ${S.section} ${hasImage}`}>
       <div className={S.content}>
-        <Title className={S.title} size="h2">
-          {title}
-        </Title>
+        <Title size="h2">{title}</Title>
         <Markdown>{text}</Markdown>
         {link && <Link href={link.url}>{link.label}</Link>}
       </div>

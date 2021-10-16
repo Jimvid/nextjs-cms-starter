@@ -15,14 +15,21 @@
   }
 }
 
-.title {
-  max-width: 650px;
-}
-
 .imageWrapper {
   position: relative;
   display: flex;
   aspect-ratio: 16/8;
+
+  // Make sure next image component is also rounded
+  > div {
+    border-radius: var(--border-radius);
+  }
+
+  // Default background color when loading
+  // Else decorated images look strange on load
+  img {
+    background-color: var(--brand-contrast);
+  }
 
   @include breakpoints.size("large") {
     aspect-ratio: 16/10;
