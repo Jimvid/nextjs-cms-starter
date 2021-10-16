@@ -14,12 +14,13 @@ const Footer = () => {
   return (
     <footer className={S.footer}>
       <div className="inner">
-        <Image
-          className={S.image}
-          src={getStrapiMedia(logotype) || "/site-logo-white.svg"}
-          width={32}
-          height={32}
-        />
+        <div className={S.image}>
+          <Image
+            src={getStrapiMedia(logotype) || "/site-logo-white.svg"}
+            width={32}
+            height={32}
+          />
+        </div>
         <Title className={S.title} size="h5">
           {title}
         </Title>
