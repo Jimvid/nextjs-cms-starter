@@ -1,7 +1,7 @@
 import React from "react"
 import { getStrapiMedia } from "lib/api"
 import Image from "next/image"
-import Link from "components/atoms/link/Link"
+import Link from "components/atoms/link"
 import S from "./blogpost.module.scss"
 import Markdown from "react-markdown"
 

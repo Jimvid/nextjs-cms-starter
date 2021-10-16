@@ -1,10 +1,10 @@
 import React from "react"
-import Title from "components/atoms/title/Title"
+import Title from "components/atoms/title"
 import Markdown from "react-markdown"
 import S from "./cardList.module.scss"
-import Card, { Props as CardProps } from "components/molecules/card"
+import Card, { CardProps } from "components/molecules/card"
 
-const CardList = ({ title, text, cards }: Props) => {
+const CardList = ({ title, text, cards }: CardListProps) => {
   return (
     <section className="section">
       <div className={S.head}>
@@ -20,7 +20,7 @@ const CardList = ({ title, text, cards }: Props) => {
   )
 }
 
-export interface Props {
+export interface CardListProps {
   id: string
   title: string
   text: string

@@ -1,10 +1,10 @@
 import React from "react"
-import Title from "components/atoms/title/Title"
+import Title from "components/atoms/title"
 import Link from "next/link"
 import Markdown from "react-markdown"
 import S from "./card.module.scss"
 
-const Card = ({ title, text, url }: Props) => {
+const Card = ({ title, text, url }: CardProps) => {
   return (
     <article className={S.card}>
       <Title className={S.title} size="h3">
@@ -16,7 +16,7 @@ const Card = ({ title, text, url }: Props) => {
   )
 }
 
-export interface Props {
+export interface CardProps {
   id: string
   title: string
   text: string

@@ -7,7 +7,7 @@ import Link from "next/link"
 import S from "./header.module.scss"
 
 const Header = () => {
-  const globalContext = useContext(GlobalContext) as Props
+  const globalContext = useContext(GlobalContext) as HeaderProps
   const { header, menu } = globalContext
   const [isOpen, setIsOpen] = useState(false)
 
@@ -77,7 +77,7 @@ const Header = () => {
 }
 
 //  types
-interface Props {
+interface HeaderProps {
   header: {
     logotype: {
       url: string

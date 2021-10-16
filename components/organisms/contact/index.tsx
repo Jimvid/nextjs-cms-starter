@@ -1,8 +1,8 @@
 import React from "react"
 import { getStrapiMedia } from "lib/media"
-import Title from "components/atoms/title/Title"
+import Title from "components/atoms/title"
 import Image from "next/image"
-import Icon from "components/atoms/icon/Icon"
+import Icon from "components/atoms/icon"
 import S from "./contact.module.scss"
 
 const Contact = ({ title, name, phone, email, image }: ContactProps) => {

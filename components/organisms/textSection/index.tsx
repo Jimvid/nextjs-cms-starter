@@ -1,12 +1,18 @@
 import React from "react"
-import Link from "components/atoms/link/Link"
-import Title from "components/atoms/title/Title"
+import Link from "components/atoms/link"
+import Title from "components/atoms/title"
 import Image from "next/image"
 import S from "./textSection.module.scss"
 import { getStrapiMedia } from "lib/media"
 import Markdown from "react-markdown"
 
-const TextSection = ({ title, text, image, link, reversed }: Props) => {
+const TextSection = ({
+  title,
+  text,
+  image,
+  link,
+  reversed,
+}: TextSectionProps) => {
   const hasImage = image ? S.has__image : ""
   const isReversed = reversed ? S.reversed : ""
 
@@ -31,7 +37,7 @@ const TextSection = ({ title, text, image, link, reversed }: Props) => {
   )
 }
 
-export interface Props {
+export interface TextSectionProps {
   title: string
   text: string
   link: {

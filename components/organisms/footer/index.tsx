@@ -2,11 +2,11 @@ import { useContext } from "react"
 import { GlobalContext } from "pages/_app"
 import { getStrapiMedia } from "lib/media"
 import Image from "next/image"
-import Title from "components/atoms/title/Title"
+import Title from "components/atoms/title"
 import S from "./footer.module.scss"
 
 const Footer = () => {
-  const globalContext = useContext(GlobalContext) as Props
+  const globalContext = useContext(GlobalContext) as FooterProps
   const { footer } = globalContext
   const { logotype, title, text } = footer
 
@@ -30,7 +30,7 @@ const Footer = () => {
 }
 
 // Types
-interface Props {
+interface FooterProps {
   footer: {
     title: string
     text: string

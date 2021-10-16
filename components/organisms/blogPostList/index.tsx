@@ -1,12 +1,10 @@
 import React from "react"
-import Divider from "components/atoms/divider/Divider"
-import Title from "components/atoms/title/Title"
-import BlogPost, {
-  Props as BlogPostProps,
-} from "components/molecules/blogPost/BlogPost"
+import Divider from "components/atoms/divider"
+import Title from "components/atoms/title"
+import BlogPost, { Props as BlogPostProps } from "components/molecules/blogPost"
 import S from "./blogPostList.module.scss"
 
-const BlogPostList = ({ title, text, posts }: Props) => {
+const BlogPostList = ({ title, text, posts }: BlogPostListProps) => {
   // TODO: If posts is empty fetch all posts
   return (
     <section>
@@ -28,9 +26,9 @@ const BlogPostList = ({ title, text, posts }: Props) => {
   )
 }
 
-export interface Props {
-  title?: string
-  text?: string
+export interface BlogPostListProps {
+  title: string
+  text: string
   posts: BlogPostProps[]
 }
 

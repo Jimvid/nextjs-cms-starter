@@ -1,6 +1,6 @@
 import Markdown from "react-markdown"
 import { getPosts, notFound, getLocalizedParams, getStrapiMedia } from "lib/api"
-import Title from "components/atoms/title/Title"
+import Title from "components/atoms/title"
 import Image from "next/image"
 import Layout from "components/shared/Layout"
 import { SeoDetails } from "components/shared/Seo"

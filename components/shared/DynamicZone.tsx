@@ -1,11 +1,9 @@
 import React, { Fragment } from "react"
-import TextSection, {
-  Props as TextSectionProps,
-} from "components/organisms/textSection/TextSection"
+import TextSection, { TextSectionProps } from "components/organisms/textSection"
 import BlogPostList, {
-  Props as BlogPostListProps,
-} from "components/organisms/blogPostList/BlogPostList"
-import CardList, { Props as CardListProps } from "components/organisms/cardList"
+  BlogPostListProps,
+} from "components/organisms/blogPostList"
+import CardList, { CardListProps } from "components/organisms/cardList"
 import Contact, { ContactProps } from "components/organisms/contact"
 // Check which component that should be rendered
 const Dynamic = (p: Component) => {

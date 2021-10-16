@@ -1,7 +1,7 @@
 import { fetchAPI, notFound } from "lib/api"
 import BlogPostList, {
   Props as BlogPostListProps,
-} from "components/organisms/blogPostList/BlogPostList"
+} from "components/organisms/blogPostList"
 import Layout from "components/shared/Layout"
 
 const index = ({ posts }: BlogPostListProps) => {

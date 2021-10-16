@@ -1,6 +1,6 @@
 import React from "react"
-import Header from "components/organisms/header/Header"
-import Footer from "components/organisms/footer/Footer"
+import Header from "components/organisms/header"
+import Footer from "components/organisms/footer"
 import Seo, { SeoDetails } from "./Seo"
 
 const Layout = ({ children, seo }: LayoutProps) => {
