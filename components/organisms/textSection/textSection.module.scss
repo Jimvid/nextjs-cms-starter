@@ -10,7 +10,7 @@
     grid-template-columns: 1fr;
 
     @include breakpoints.size("medium") {
-      grid-template-columns: repeat(auto-fill, minmax(calc(520px - 3rem), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(calc(520px - 3rem), 1fr));
     }
   }
 }
@@ -21,9 +21,24 @@
 
 .imageWrapper {
   position: relative;
+  display: flex;
   aspect-ratio: 16/8;
 
   @include breakpoints.size("large") {
     aspect-ratio: 16/10;
+  }
+}
+
+.reversed {
+  @include breakpoints.size("large") {
+    .content {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .imageWrapper {
+      grid-column: 1;
+      grid-row: 1;
+    }
   }
 }

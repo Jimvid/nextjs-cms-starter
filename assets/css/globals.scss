@@ -65,13 +65,14 @@ button {
 }
 
 h1 {
-  font-size: 3rem;
-  line-height: 3.5rem;
+  font-size: 2.5rem;
+  line-height: 3rem;
+  margin-bottom: 2rem;
 }
 
 h2 {
-  font-size: 3rem;
-  line-height: 3.5rem;
+  font-size: 2.5rem;
+  line-height: 3rem;
   margin-bottom: 2rem;
 }
 
@@ -91,4 +92,8 @@ h5 {
   font-size: 1.125rem;
   line-height: 1.8rem;
   margin-bottom: 0.25rem;
+}
+
+img {
+  background-color: var(--brand-contrast);
 }

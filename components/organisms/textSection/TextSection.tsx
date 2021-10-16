@@ -6,11 +6,12 @@ import S from "./textSection.module.scss"
 import { getStrapiMedia } from "lib/media"
 import Markdown from "react-markdown"
 
-const TextSection = ({ title, text, image, link }: Props) => {
+const TextSection = ({ title, text, image, link, reversed }: Props) => {
   const hasImage = image ? S.has__image : ""
+  const isReversed = reversed ? S.reversed : ""
 
   return (
-    <section className={`section ${S.section} ${hasImage}`}>
+    <section className={`section ${isReversed} ${S.section} ${hasImage}`}>
       <div className={S.content}>
         <Title className={S.title} size="h2">
           {title}
@@ -20,7 +21,12 @@ const TextSection = ({ title, text, image, link }: Props) => {
       </div>
       {image && (
         <div className={`${S.imageWrapper} decorated-image`}>
-          <Image src={getStrapiMedia(image)} layout="fill" objectFit="cover" />
+          <Image
+            src={getStrapiMedia(image)}
+            width={image.width}
+            height={image.height}
+            objectFit="cover"
+          />
         </div>
       )}
     </section>
@@ -39,6 +45,7 @@ export interface Props {
     width: number
     height: number
   }
+  reversed: boolean
 }
 
 export default TextSection
