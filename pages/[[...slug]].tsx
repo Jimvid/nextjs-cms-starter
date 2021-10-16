@@ -1,4 +1,4 @@
-import { getPages, notFound, getLocalizedParams } from "lib/api"
+import { getPages, notFound, getLocalizedParams, fetchAPI } from "lib/api"
 import { SeoDetails } from "components/shared/Seo"
 import DynamicZone from "components/shared/DynamicZone"
 import Layout from "components/shared/Layout"
@@ -9,11 +9,20 @@ const DynamicBlock = ({ pageData }: Props) => (
   </Layout>
 )
 
-export async function getServerSideProps(context: any) {
-  const { slug } = getLocalizedParams(context.query)
+export async function getStaticPaths() {
+  const pages = await fetchAPI("/pages")
+  const paths = pages.map((page: any) => ({
+    params: { slug: [page.slug] },
+  }))
 
+  return { paths, fallback: false }
+}
+
+export async function getStaticProps({ params }: PropParams) {
   try {
-    const data = getPages(slug)
+    const query = Object.entries(params).length === 0 ? "" : params.slug[0]
+
+    const data = getPages(query)
     const res = await fetch(data.data)
     const json = await res.json()
 
@@ -23,6 +32,12 @@ export async function getServerSideProps(context: any) {
     return { props: { pageData } }
   } catch (error) {
     console.log(error)
+  }
+}
+
+interface PropParams {
+  params: {
+    slug: string
   }
 }
 

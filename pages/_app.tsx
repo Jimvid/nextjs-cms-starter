@@ -30,8 +30,8 @@ const Site = ({ Component, pageProps }: AppProps) => {
   )
 }
 
-// getInitialProps disables automatic static optimization for pages that don't
-// have getStaticProps. So article, category and home pages still get SSG.
+// getInitialProps disables automatic static optimization for pages
+//  that don't have getStaticProps.
 Site.getInitialProps = async (context: any) => {
   // Calls page's `getInitialProps` and fills `appProps.pageProps`
   const appProps = await App.getInitialProps(context)

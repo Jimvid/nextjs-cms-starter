@@ -49,7 +49,7 @@ export const getLocalizedParams = (query: Query) => {
 // Build the url to fetch pages from the Strapi API
 export const getPages = (slug: string) => {
   const slugToReturn = `/${slug}`
-  const apiUrl = `/pages?slug=/${slug}`
+  const apiUrl = `/pages?slug=${slug}`
 
   return {
     data: getStrapiURL(apiUrl),

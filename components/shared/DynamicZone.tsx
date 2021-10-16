@@ -7,8 +7,6 @@ import CardList, { CardListProps } from "components/organisms/cardList"
 import Contact, { ContactProps } from "components/organisms/contact"
 // Check which component that should be rendered
 const Dynamic = (p: Component) => {
-  console.log(p)
-
   switch (p.__component) {
     case "organisms.text-image-section":
       return <TextSection {...p} />

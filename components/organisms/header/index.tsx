@@ -67,7 +67,7 @@ const Header = () => {
               className={`underline ${S.list__item} ${highlightLink(m.slug)}`}
               onClick={isMenuOpen}
             >
-              <Link href={m.slug}>{m.title}</Link>
+              <Link href={`/${m.slug}`}>{m.title}</Link>
             </li>
           ))}
         </ul>
