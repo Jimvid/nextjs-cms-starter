@@ -3,13 +3,11 @@ import { SeoDetails } from "components/shared/Seo"
 import DynamicZone from "components/shared/DynamicZone"
 import Layout from "components/shared/Layout"
 
-const DynamicBlock = ({ pageData }: Props) => {
-  return (
-    <Layout seo={pageData.seo}>
-      <DynamicZone components={pageData.dynamicZone} />
-    </Layout>
-  )
-}
+const DynamicBlock = ({ pageData }: Props) => (
+  <Layout seo={pageData.seo}>
+    <DynamicZone components={pageData.dynamicZone} />
+  </Layout>
+)
 
 export async function getServerSideProps(context: any) {
   const { slug } = getLocalizedParams(context.query)
