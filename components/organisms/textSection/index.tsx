@@ -12,12 +12,16 @@ const TextSection = ({
   image,
   link,
   reversed,
+  wide,
 }: TextSectionProps) => {
   const hasImage = image ? S.has__image : ""
   const isReversed = reversed ? S.reversed : ""
+  const hasWideImage = wide ? S.wideImage : ""
 
   return (
-    <section className={`section ${isReversed} ${S.section} ${hasImage}`}>
+    <section
+      className={`section ${isReversed} ${S.section} ${hasImage} ${hasWideImage}`}
+    >
       <div className={S.content}>
         <Title size="h2">{title}</Title>
         <Markdown>{text}</Markdown>
@@ -50,6 +54,7 @@ export interface TextSectionProps {
     height: number
   }
   reversed: boolean
+  wide: boolean
 }
 
 export default TextSection
