@@ -8,6 +8,7 @@ import AccordionList, {
 } from "components/organisms/accordionList"
 import CardList, { CardListProps } from "components/organisms/cardList"
 import Contact, { ContactProps } from "components/organisms/contact"
+import Gallery, { GalleryProps } from "components/organisms/gallery"
 // Check which component that should be rendered
 
 const Dynamic = (p: Component) => {
@@ -22,6 +23,8 @@ const Dynamic = (p: Component) => {
       return <Contact {...p} />
     case "organisms.accordion-list":
       return <AccordionList {...p} />
+    case "organisms.gallery":
+      return <Gallery {...p} />
     default:
       return null
   }
@@ -50,7 +53,8 @@ interface Component
     BlogPostListProps,
     CardListProps,
     AccordionListProps,
-    ContactProps {
+    ContactProps,
+    GalleryProps {
   id: string
   __component: string
 }

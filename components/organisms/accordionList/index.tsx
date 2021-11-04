@@ -4,7 +4,7 @@ import S from "./accordionList.module.scss"
 
 const AccordionList = ({ accordions }: AccordionListProps) => {
   return (
-    <section className={S.accordionList}>
+    <section className={`section ${S.accordionList}`}>
       {accordions.map((accordion: AccordionProps) => (
         <Accordion
           key={accordion.title}
