@@ -1,0 +1,52 @@
+@use "assets/css/breakpoints";
+
+.featuredTextSection {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: var(--brand-contrast);
+  padding: 2rem 1.5rem;
+  border-radius: var(--border-radius);
+
+  @include breakpoints.size("small") {
+    padding: 4rem 1.5rem;
+  }
+}
+
+.corner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+}
+
+.top_left {
+  top: 0;
+  left: 0;
+  border-left: 2px solid var(--brand-color);
+  border-top: 2px solid var(--brand-color);
+  border-top-left-radius: var(--border-radius);
+}
+
+.top_right {
+  top: 0;
+  right: 0;
+  border-right: 2px solid var(--brand-color);
+  border-top: 2px solid var(--brand-color);
+  border-top-right-radius: var(--border-radius);
+}
+
+.bottom_right {
+  bottom: 0;
+  right: 0;
+  border-right: 2px solid var(--brand-color);
+  border-bottom: 2px solid var(--brand-color);
+  border-bottom-right-radius: var(--border-radius);
+}
+
+.bottom_left {
+  bottom: 0;
+  left: 0;
+  border-left: 2px solid var(--brand-color);
+  border-bottom: 2px solid var(--brand-color);
+  border-bottom-left-radius: var(--border-radius);
+}

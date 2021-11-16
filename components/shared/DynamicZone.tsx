@@ -9,6 +9,9 @@ import AccordionList, {
 import CardList, { CardListProps } from "components/organisms/cardList"
 import Contact, { ContactProps } from "components/organisms/contact"
 import Gallery, { GalleryProps } from "components/organisms/gallery"
+import FeaturedTextSection, {
+  FeaturedTextSectionProps,
+} from "components/organisms/featuredTextSection"
 // Check which component that should be rendered
 
 const Dynamic = (p: Component) => {
@@ -25,6 +28,8 @@ const Dynamic = (p: Component) => {
       return <AccordionList {...p} />
     case "organisms.gallery":
       return <Gallery {...p} />
+    case "organisms.featured-text-section":
+      return <FeaturedTextSection {...p} />
     default:
       return null
   }
@@ -54,7 +59,8 @@ interface Component
     CardListProps,
     AccordionListProps,
     ContactProps,
-    GalleryProps {
+    GalleryProps,
+    FeaturedTextSectionProps {
   id: string
   __component: string
 }
