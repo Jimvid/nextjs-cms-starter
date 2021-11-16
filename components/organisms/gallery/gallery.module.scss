@@ -1,0 +1,65 @@
+@use "assets/css/breakpoints";
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.buttonContainer {
+  display: flex;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  align-items: center;
+  height: 48px;
+  width: 48px;
+  cursor: pointer;
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.previous {
+  transform: rotate(180deg);
+
+  &:hover {
+    transform: scale(1.2) rotate(180deg);
+  }
+}
+
+.imageCollection {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.image {
+  border-radius: var(--border-radius);
+  border: 2px solid var(--black);
+  overflow: hidden;
+  cursor: pointer;
+  transition: ease 0.2s;
+
+  &:hover {
+    box-shadow: var(--elevation);
+    transform: translateY(-0.25rem);
+  }
+}
+
+@include breakpoints.size("medium") {
+  .imageCollection {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

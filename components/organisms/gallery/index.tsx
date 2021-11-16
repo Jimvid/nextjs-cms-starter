@@ -1,35 +1,84 @@
 import React, { useState, useCallback } from "react"
+import { ImageProps } from "types/global"
+import Modal from "components/molecules/modal"
 import Title from "components/atoms/title"
 import Image from "next/image"
-import { getStrapiMedia } from "lib/media"
+import S from "./gallery.module.scss"
 
 const Gallery = ({ imageCollections }: GalleryProps) => {
   const [page, setPage] = useState(0)
+  const [isOpen, setIsOpen] = useState(false)
+  const [modalImage, setModalImage] = useState<ImageProps | null>(null)
   const numberOfPages = imageCollections.length - 1
 
-  const nextPage = () => {
+  const nextPage = useCallback(() => {
     setPage((page) => (page !== numberOfPages ? page + 1 : page))
-  }
+  }, [page])
 
-  const previousPage = () => {
+  const prevPage = useCallback(() => {
     setPage((page) => (page !== 0 ? page - 1 : page))
-  }
+  }, [page])
+
+  const openModal = useCallback(
+    (image: ImageProps) => {
+      setModalImage(image)
+      setIsOpen(true)
+    },
+    [isOpen, modalImage]
+  )
+
+  const closeModal = useCallback(() => setIsOpen(false), [isOpen])
 
   return (
     <section className="section">
-      <header>
-        <Title size="h2">{imageCollections[page].title}</Title>
-        <button onClick={previousPage}>Prev</button>
-        <button onClick={nextPage}>Next</button>
+      <header className={S.head}>
+        <Title className={S.title} size="h2">
+          {imageCollections[page].title}
+        </Title>
+        <div className={S.buttonContainer}>
+          <button className={`${S.previous} ${S.button}`} onClick={prevPage}>
+            <Image src="/triangle.svg" height={30} width={30} />
+          </button>
+          <button className={`${(S.next, S.button)}`} onClick={nextPage}>
+            <Image src="/triangle.svg" height={30} width={30} />
+          </button>
+        </div>
       </header>
-      {imageCollections[page].images.map((image) => (
-        <Image
-          key={image.id}
-          src={getStrapiMedia(image)}
-          width="100"
-          height="50"
-        />
-      ))}
+      <div className={S.imageCollection}>
+        {imageCollections[page].images.map((image) => (
+          <div
+            key={image.id}
+            className={S.image}
+            onClick={() => openModal(image)}
+          >
+            <Image
+              src={image.formats.medium.url}
+              layout="responsive"
+              width={image.width}
+              height={image.height}
+              sizes="33vw"
+            />
+          </div>
+        ))}
+      </div>
+      <Modal
+        isOpen={isOpen}
+        closeModal={closeModal}
+        title={"title"}
+        closeDialogLabel={"closeDialogLabel"}
+      >
+        {modalImage ? (
+          <Image
+            src={modalImage.formats.large.url}
+            layout="responsive"
+            width={modalImage.width}
+            height={modalImage.height}
+            sizes="33vw"
+          />
+        ) : (
+          <p>joke</p>
+        )}
+      </Modal>
     </section>
   )
 }
@@ -38,18 +87,11 @@ export default Gallery
 
 export interface GalleryProps {
   id: string
-  imageCollections: ImageCollections[]
+  imageCollections: ImageCollection[]
 }
 
-export interface ImageCollections {
+export interface ImageCollection {
   id: string
   title: string
-  images: Image[]
-}
-
-export interface Image {
-  id: string
-  url: string
-  width: number
-  height: number
+  images: ImageProps[]
 }

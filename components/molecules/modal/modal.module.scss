@@ -1,0 +1,50 @@
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80vw;
+  transform: translate(-50%, -50%);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  border: 2px solid var(--black);
+  box-shadow: var(--elevation);
+  cursor: default;
+  background-color: var(--black);
+}
+
+.closeModal {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  z-index: 99;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: transparent;
+  cursor: pointer;
+
+  &::after {
+    box-shadow: var(--elevation);
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 0.25rem;
+    border-radius: 3rem;
+    top: 50%;
+    right: calc(50% - 1rem);
+    background-color: var(--black);
+    transform: rotate(45deg);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 0.25rem;
+    border-radius: 3rem;
+    top: 50%;
+    right: calc(50% - 1rem);
+    background-color: var(--black);
+    transform: rotate(-45deg);
+    box-shadow: var(--elevation);
+  }
+}
