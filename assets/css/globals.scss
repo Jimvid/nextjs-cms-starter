@@ -1,3 +1,5 @@
+@use "./breakpoints.scss";
+
 html,
 body {
   padding: 0;
@@ -66,27 +68,27 @@ button {
 }
 
 h1 {
-  font-size: 2.5rem;
-  line-height: 3rem;
-  margin-bottom: 2rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 h2 {
-  font-size: 2.5rem;
-  line-height: 3rem;
-  margin-bottom: 2rem;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 h3 {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 
 h4 {
-  font-size: 1.5rem;
-  line-height: 2rem;
-  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 
 h5 {
@@ -117,5 +119,37 @@ a:hover {
   &::before {
     transform: scaleX(1);
     transition: 200ms ease-in;
+  }
+}
+
+@include breakpoints.size("medium") {
+  h1 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    line-height: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 1.25rem;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  h5 {
+    font-size: 1.125rem;
+    line-height: 1.8rem;
+    margin-bottom: 0.25rem;
   }
 }
