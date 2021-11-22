@@ -12,9 +12,12 @@ import Gallery, { GalleryProps } from "components/organisms/gallery"
 import FeaturedText, {
   FeaturedTextProps,
 } from "components/organisms/featuredText"
+import RatingList, { RatingListProps } from "components/organisms/ratingList"
 // Check which component that should be rendered
 
 const Dynamic = (p: Component) => {
+  console.log(p.__component)
+
   switch (p.__component) {
     case "organisms.text":
       return <TextBlock {...p} />
@@ -30,6 +33,8 @@ const Dynamic = (p: Component) => {
       return <Gallery {...p} />
     case "organisms.featured-text":
       return <FeaturedText {...p} />
+    case "organisms.rating":
+      return <RatingList {...p} />
     default:
       return null
   }
@@ -60,7 +65,8 @@ interface Component
     AccordionListProps,
     ContactProps,
     GalleryProps,
-    FeaturedTextProps {
+    FeaturedTextProps,
+    RatingListProps {
   id: string
   __component: string
 }

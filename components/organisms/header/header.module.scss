@@ -7,7 +7,7 @@
   margin-bottom: 2rem;
   width: 100%;
 
-  @include breakpoints.size(large) {
+  @include breakpoints.size("large") {
     margin-top: 2rem;
     margin-bottom: 6rem;
   }
@@ -36,16 +36,16 @@
     transition: ease 0.3s;
     transform: translateX(-2rem);
 
-    @include breakpoints.size(large) {
+    @include breakpoints.size("large") {
       transform: translateX(0);
     }
   }
 
-  @include breakpoints.size(small) {
+  @include breakpoints.size("small") {
     max-width: 275px;
   }
 
-  @include breakpoints.size(large) {
+  @include breakpoints.size("large") {
     position: relative;
     top: 0;
     flex-direction: row;
@@ -97,7 +97,7 @@
     left: 0;
   }
 
-  @include breakpoints.size(large) {
+  @include breakpoints.size("large") {
     display: none;
   }
 }
@@ -108,7 +108,7 @@
   margin-bottom: 1rem;
   display: flex;
 
-  @include breakpoints.size(large) {
+  @include breakpoints.size("large") {
     margin-right: 2rem;
     margin-bottom: 0;
   }
@@ -120,7 +120,7 @@
   flex-direction: column;
   gap: 0.5rem;
 
-  @include breakpoints.size(large) {
+  @include breakpoints.size("large") {
     flex-direction: row;
     align-items: center;
     justify-content: center;

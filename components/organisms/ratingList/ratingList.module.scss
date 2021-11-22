@@ -1,0 +1,8 @@
+@use "assets/css/breakpoints";
+
+.title {
+  margin-bottom: 2rem;
+  @include breakpoints.size("medium") {
+    margin-bottom: 4.5rem;
+  }
+}
