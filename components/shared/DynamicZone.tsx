@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import TextSection, { TextSectionProps } from "components/organisms/textSection"
+import TextBlock, { TextBlockProps } from "components/organisms/textBlock"
 import BlogPostList, {
   BlogPostListProps,
 } from "components/organisms/blogPostList"
@@ -9,15 +9,15 @@ import AccordionList, {
 import CardList, { CardListProps } from "components/organisms/cardList"
 import Contact, { ContactProps } from "components/organisms/contact"
 import Gallery, { GalleryProps } from "components/organisms/gallery"
-import FeaturedTextSection, {
-  FeaturedTextSectionProps,
-} from "components/organisms/featuredTextSection"
+import FeaturedText, {
+  FeaturedTextProps,
+} from "components/organisms/featuredText"
 // Check which component that should be rendered
 
 const Dynamic = (p: Component) => {
   switch (p.__component) {
-    case "organisms.text-image-section":
-      return <TextSection {...p} />
+    case "organisms.text":
+      return <TextBlock {...p} />
     case "organisms.post-list":
       return <BlogPostList {...p} />
     case "organisms.card-list":
@@ -28,8 +28,8 @@ const Dynamic = (p: Component) => {
       return <AccordionList {...p} />
     case "organisms.gallery":
       return <Gallery {...p} />
-    case "organisms.featured-text-section":
-      return <FeaturedTextSection {...p} />
+    case "organisms.featured-text":
+      return <FeaturedText {...p} />
     default:
       return null
   }
@@ -54,13 +54,13 @@ interface Props {
 // #TODO
 // Implement a better solution then this
 interface Component
-  extends TextSectionProps,
+  extends TextBlockProps,
     BlogPostListProps,
     CardListProps,
     AccordionListProps,
     ContactProps,
     GalleryProps,
-    FeaturedTextSectionProps {
+    FeaturedTextProps {
   id: string
   __component: string
 }

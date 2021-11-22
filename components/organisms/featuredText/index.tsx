@@ -2,11 +2,11 @@ import React from "react"
 import Title from "components/atoms/title"
 import Markdown from "react-markdown"
 import Link from "components/atoms/link"
-import S from "./featuredTextSection.module.scss"
+import S from "./featuredText.module.scss"
 
-const FeaturedTextSection = (p: FeaturedTextSectionProps) => {
+const FeaturedText = (p: FeaturedTextProps) => {
   return (
-    <section className={`section inner ${S.featuredTextSection}`}>
+    <section className={`section inner ${S.featuredText}`}>
       <div>
         <Title size="h2">{p.title}</Title>
         <Markdown>{p.text}</Markdown>
@@ -20,9 +20,9 @@ const FeaturedTextSection = (p: FeaturedTextSectionProps) => {
   )
 }
 
-export default FeaturedTextSection
+export default FeaturedText
 
-export interface FeaturedTextSectionProps {
+export interface FeaturedTextProps {
   title: string
   text: string
   link: {

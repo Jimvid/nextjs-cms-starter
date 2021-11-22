@@ -2,18 +2,18 @@ import React from "react"
 import Link from "components/atoms/link"
 import Title from "components/atoms/title"
 import Image from "next/image"
-import S from "./textSection.module.scss"
+import S from "./textBlock.module.scss"
 import { getStrapiMedia } from "lib/media"
 import Markdown from "react-markdown"
 
-const TextSection = ({
+const TextBlock = ({
   title,
   text,
   image,
   link,
   reversed,
   wide,
-}: TextSectionProps) => {
+}: TextBlockProps) => {
   const hasImage = image ? S.has__image : ""
   const isReversed = reversed ? S.reversed : ""
   const hasWideImage = wide ? S.wideImage : ""
@@ -41,7 +41,7 @@ const TextSection = ({
   )
 }
 
-export interface TextSectionProps {
+export interface TextBlockProps {
   title: string
   text: string
   link: {
@@ -57,4 +57,4 @@ export interface TextSectionProps {
   wide: boolean
 }
 
-export default TextSection
+export default TextBlock
