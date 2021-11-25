@@ -1,11 +1,17 @@
 import React from "react"
 import Accordion, { AccordionProps } from "components/molecules/accordion"
+import Title from "components/atoms/title"
+import Markdown from "react-markdown"
 import S from "./accordionList.module.scss"
 
-const AccordionList = ({ accordions }: AccordionListProps) => {
+const AccordionList = (p: AccordionListProps) => {
   return (
     <section className={`section ${S.accordionList}`}>
-      {accordions.map((accordion: AccordionProps) => (
+      <div>
+        <Title size="h2">{p.title}</Title>
+        <Markdown>{p.text}</Markdown>
+      </div>
+      {p.accordions.map((accordion: AccordionProps) => (
         <Accordion
           key={accordion.title}
           title={accordion.title}
@@ -17,6 +23,8 @@ const AccordionList = ({ accordions }: AccordionListProps) => {
 }
 
 export interface AccordionListProps {
+  title: string
+  text: string
   accordions: AccordionProps[]
 }
 

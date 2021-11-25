@@ -16,8 +16,6 @@ import RatingList, { RatingListProps } from "components/organisms/ratingList"
 // Check which component that should be rendered
 
 const Dynamic = (p: Component) => {
-  console.log(p.__component)
-
   switch (p.__component) {
     case "organisms.text":
       return <TextBlock {...p} />

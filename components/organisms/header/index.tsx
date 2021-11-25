@@ -18,10 +18,10 @@ const Header = () => {
 
   // Highlight link in menu if page is visited
   const highlightLink = (slug: any) => {
-    const regex = new RegExp(`^${slug}$`)
+    const regex = new RegExp(`^/${slug}$`)
     const hasMatch = useRouter().asPath.match(regex)
 
-    return hasMatch && hasMatch[0] === slug && S.active_list__item
+    return hasMatch ? S.active_list__item : ""
   }
 
   const isMenuOpen = () => {

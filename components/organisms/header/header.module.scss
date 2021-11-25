@@ -148,7 +148,7 @@
     }
   }
 
-  @include breakpoints.size(large) {
+  @include breakpoints.size("large") {
     margin-right: 2rem;
     display: inline;
   }

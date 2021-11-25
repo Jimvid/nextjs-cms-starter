@@ -1,13 +1,17 @@
 import { fetchAPI, notFound } from "lib/api"
 import BlogPostList, {
-  Props as BlogPostListProps,
+  BlogPostListProps,
 } from "components/organisms/blogPostList"
 import Layout from "components/shared/Layout"
 
 const index = ({ posts }: BlogPostListProps) => {
   return (
     <Layout>
-      <BlogPostList title={"Det senaste från Antikens"} posts={posts} />
+      <BlogPostList
+        title={"Det senaste från Antikens"}
+        text={""}
+        posts={posts}
+      />
     </Layout>
   )
 }

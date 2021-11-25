@@ -11,7 +11,7 @@ const RatingList = (p: RatingListProps) => {
         {p.title}
       </Title>
       {p.ratings.map(({ id, rating, title, to, from, text }, index) => (
-        <>
+        <React.Fragment key={id}>
           <Rating
             key={id}
             title={title}
@@ -21,7 +21,7 @@ const RatingList = (p: RatingListProps) => {
             rating={rating}
           />
           {index < p.ratings.length - 1 && <Divider />}
-        </>
+        </React.Fragment>
       ))}
     </section>
   )
