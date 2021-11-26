@@ -1,0 +1,27 @@
+.image {
+  position: relative;
+  display: flex;
+
+  // Make sure next image component is also rounded
+  > div {
+    border-radius: var(--border-radius);
+  }
+
+  // Default background color when loading
+  // Else decorated images look strange on load
+  img {
+    background-color: var(--brand-contrast);
+  }
+}
+
+.landscape {
+  aspect-ratio: 16/10;
+}
+
+.portrait {
+  aspect-ratio: 2 / 3;
+}
+
+.square {
+  aspect-ratio: 1 / 1;
+}
