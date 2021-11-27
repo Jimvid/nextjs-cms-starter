@@ -24,6 +24,9 @@
 
 .decorated-image {
   position: relative;
+  border-radius: 8px;
+  outline: 2px solid #1a1a1a;
+  outline-offset: -2px;
 
   &::after {
     border-radius: 8px;
@@ -36,11 +39,5 @@
     z-index: -1;
     background-color: var(--brand-color);
     transform: translate(0.5rem, 0.5rem);
-  }
-
-  img {
-    border-radius: 8px;
-    outline: 2px solid #1a1a1a;
-    outline-offset: -2px;
   }
 }
