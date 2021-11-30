@@ -3,8 +3,6 @@ import NextImage, { ImageProps } from "next/image"
 import S from "./image.module.scss"
 
 const Image = (p: Image) => {
-  console.log(p)
-
   const mapAspectRatop: { [key: string]: string } = {
     landscape: S.landscape,
     portrait: S.portrait,
@@ -13,16 +11,18 @@ const Image = (p: Image) => {
 
   return (
     <div
-      className={`${S.image} ${p.className} ${mapAspectRatop[p.aspectratio]} `}
+      className={`${S.image} ${p.className} ${
+        mapAspectRatop[p.aspectratio || ""]
+      }`}
     >
-      <NextImage {...p} objectPosition={"top"} />
+      <NextImage {...p} />
     </div>
   )
 }
 
 interface Image extends ImageProps {
   className?: string
-  aspectratio: string
+  aspectratio?: string
 }
 
 Image.defaultProps = {

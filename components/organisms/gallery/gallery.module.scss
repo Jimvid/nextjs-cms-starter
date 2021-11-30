@@ -46,15 +46,23 @@
 }
 
 .image {
+  display: initial;
+  aspect-ratio: 4/3;
   border-radius: var(--border-radius);
-  border: 2px solid var(--black);
+  border: 2px solid;
+  border-color: var(--black);
   overflow: hidden;
   cursor: pointer;
   transition: ease 0.2s;
 
+  img {
+    border-radius: 0;
+  }
+
   &:hover {
     box-shadow: var(--elevation);
-    transform: translateY(-0.25rem);
+    border-color: var(--brand-color);
+    border-width: 8px;
   }
 }
 
@@ -62,4 +70,12 @@
   .imageCollection {
     grid-template-columns: 1fr 1fr 1fr;
   }
+}
+
+.modalContent {
+  display: block;
+  height: auto;
+  width: 80vw;
+  max-width: 1080px;
+  max-height: 80vh;
 }

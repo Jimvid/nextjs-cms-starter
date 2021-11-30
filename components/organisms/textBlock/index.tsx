@@ -10,7 +10,6 @@ const TextBlock = ({
   title,
   text,
   media,
-  imagePosition,
   link,
   reversed,
   wide,
@@ -30,7 +29,7 @@ const TextBlock = ({
       </div>
       {media?.image && (
         <Image
-          className="decorated-image"
+          className={`${S.image} decorated-image`}
           src={getStrapiMedia(media.image)}
           width={media.image.width}
           height={media.image.height}
@@ -59,7 +58,6 @@ export interface TextBlockProps {
     alignment: string
     aspectRatio: string
   }
-  imagePosition: string
   reversed: boolean
   wide: boolean
 }

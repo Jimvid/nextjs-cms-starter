@@ -2,7 +2,8 @@ import React, { useState, useCallback } from "react"
 import { ImageProps } from "types/global"
 import Modal from "components/molecules/modal"
 import Title from "components/atoms/title"
-import Image from "next/image"
+import Image from "components/atoms/image"
+import NextImage from "next/image"
 import S from "./gallery.module.scss"
 
 const Gallery = ({ imageCollections }: GalleryProps) => {
@@ -31,34 +32,32 @@ const Gallery = ({ imageCollections }: GalleryProps) => {
 
   return (
     <section className="section">
-      <header className={S.head}>
-        <Title className={S.title} size="h2">
-          {imageCollections[page].title}
-        </Title>
-        <div className={S.buttonContainer}>
-          <button className={`${S.previous} ${S.button}`} onClick={prevPage}>
-            <Image src="/triangle.svg" height={30} width={30} />
-          </button>
-          <button className={`${(S.next, S.button)}`} onClick={nextPage}>
-            <Image src="/triangle.svg" height={30} width={30} />
-          </button>
-        </div>
-      </header>
+      {imageCollections.length > 1 && (
+        <header className={S.head}>
+          <Title className={S.title} size="h2">
+            {imageCollections[page].title}
+          </Title>
+          <div className={S.buttonContainer}>
+            <button className={`${S.previous} ${S.button}`} onClick={prevPage}>
+              <Image src="/triangle.svg" height={30} width={30} />
+            </button>
+            <button className={`${(S.next, S.button)}`} onClick={nextPage}>
+              <Image src="/triangle.svg" height={30} width={30} />
+            </button>
+          </div>
+        </header>
+      )}
       <div className={S.imageCollection}>
         {imageCollections[page].images.map((image) => (
-          <div
+          <Image
             key={image.id}
-            className={S.image}
             onClick={() => openModal(image)}
-          >
-            <Image
-              src={image.formats.medium.url}
-              layout="responsive"
-              width={image.width}
-              height={image.height}
-              sizes="33vw"
-            />
-          </div>
+            className={S.image}
+            src={image.formats.medium.url}
+            layout="fill"
+            objectFit="cover"
+            sizes="33vw"
+          />
         ))}
       </div>
       <Modal
@@ -69,14 +68,16 @@ const Gallery = ({ imageCollections }: GalleryProps) => {
       >
         {modalImage ? (
           <Image
+            className={S.modalContent}
             src={modalImage.formats.large.url}
             layout="responsive"
             width={modalImage.width}
             height={modalImage.height}
+            objectFit="contain"
             sizes="33vw"
           />
         ) : (
-          <p>joke</p>
+          <p></p>
         )}
       </Modal>
     </section>

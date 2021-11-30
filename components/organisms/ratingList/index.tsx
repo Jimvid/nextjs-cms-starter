@@ -6,7 +6,7 @@ import S from "./ratingList.module.scss"
 
 const RatingList = (p: RatingListProps) => {
   return (
-    <section className={S.ratingList}>
+    <section className={`section ${S.ratingList}`}>
       <Title className={S.title} size="h2">
         {p.title}
       </Title>

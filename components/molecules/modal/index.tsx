@@ -97,7 +97,7 @@ const Modal = (p: ModalProps) => {
               onClick={p.closeModal}
               aria-label={p.closeDialogLabel}
             />
-            <div>{p.children}</div>
+            <>{p.children}</>
           </div>
         </Overlay>,
         container!
