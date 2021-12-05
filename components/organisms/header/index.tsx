@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useState, useCallback } from "react"
 import { useRouter } from "next/router"
 import { GlobalContext } from "pages/_app"
 import { getStrapiMedia } from "lib/media"
@@ -41,6 +41,12 @@ const Header = () => {
     }
   }
 
+  const handleHomeLink = () => {
+    if (window.innerWidth <= 1023) {
+      return isOpen ? setIsOpen(false) : setIsOpen(true)
+    }
+  }
+
   return (
     <header className={`inner ${S.header}`}>
       <button className={S.hamburger} onClick={isMenuOpen}>
@@ -51,7 +57,7 @@ const Header = () => {
       <nav className={`${S.navbar} ${isOpen ? S.active : ""}`}>
         {/* Hamburger icon */}
         <Link href="/">
-          <a className={S.image}>
+          <a className={S.image} onClick={handleHomeLink}>
             <Image
               src={getStrapiMedia(header.logotype) || "/site-logo.svg"}
               height={32}
