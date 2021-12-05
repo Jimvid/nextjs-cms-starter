@@ -19,6 +19,13 @@
   }
 }
 
+.image {
+  &,
+  > * {
+    max-height: 450px;
+  }
+}
+
 .reversed {
   @include breakpoints.size("large") {
     .content {
@@ -38,6 +45,11 @@
     .image {
       grid-column: 1 / 2;
       grid-row: 2;
+
+      &,
+      > * {
+        max-height: 600px;
+      }
     }
   }
 }
