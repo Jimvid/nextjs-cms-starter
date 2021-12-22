@@ -11,7 +11,7 @@ const BlogPost = ({ title, shortText, image, slug }: Props) => {
       <div className={S.blogPostContent}>
         <h3 className={S.title}>{title}</h3>
         <Markdown className={S.text}>{shortText}</Markdown>
-        <Link href={`/posts${slug}`}>Läs mer</Link>
+        <Link href={`/posts/${slug}`}>Läs mer</Link>
       </div>
       {image?.url && (
         <div className={S.imageWrapper}>

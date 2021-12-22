@@ -1,5 +1,10 @@
 import Markdown from "react-markdown"
-import { getPosts, notFound, getLocalizedParams, getStrapiMedia } from "lib/api"
+import {
+  getCollectionType,
+  notFound,
+  getLocalizedParams,
+  getStrapiMedia,
+} from "lib/api"
 import Title from "components/atoms/title"
 import Image from "next/image"
 import Layout from "components/shared/Layout"
@@ -34,8 +39,7 @@ export async function getServerSideProps(context: any) {
   const { slug } = getLocalizedParams(context.query)
 
   try {
-    const data = getPosts(slug)
-
+    const data = getCollectionType("posts", slug)
     const res = await fetch(data.data)
     const json = await res.json()
 

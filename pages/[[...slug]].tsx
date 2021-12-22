@@ -1,4 +1,9 @@
-import { getPages, notFound, getLocalizedParams, fetchAPI } from "lib/api"
+import {
+  getCollectionType,
+  notFound,
+  getLocalizedParams,
+  fetchAPI,
+} from "lib/api"
 import { SeoDetails } from "components/shared/Seo"
 import DynamicZone from "components/shared/DynamicZone"
 import Layout from "components/shared/Layout"
@@ -22,7 +27,7 @@ export async function getStaticProps({ params }: PropParams) {
   try {
     const query = Object.entries(params).length === 0 ? "" : params.slug[0]
 
-    const data = getPages(query)
+    const data = getCollectionType("pages", query)
     const res = await fetch(data.data)
     const json = await res.json()
 

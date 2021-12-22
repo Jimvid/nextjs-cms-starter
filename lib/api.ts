@@ -46,21 +46,10 @@ export const getLocalizedParams = (query: Query) => {
   return { slug: query.slug || "", locale: query.lang || "en" }
 }
 
-// Build the url to fetch pages from the Strapi API
-export const getPages = (slug: string) => {
+// Build the url to fetch collection type from the Strapi API
+export const getCollectionType = (collectionType: string, slug: string) => {
   const slugToReturn = `/${slug}`
-  const apiUrl = `/pages?slug=${slug}`
-
-  return {
-    data: getStrapiURL(apiUrl),
-    slug: slugToReturn,
-  }
-}
-
-// Build the url to fetch posts from the Strapi API
-export const getPosts = (slug: string) => {
-  const slugToReturn = `/${slug}`
-  const apiUrl = `/posts?slug=/${slug}`
+  const apiUrl = `/${collectionType}?slug=${slug}`
 
   return {
     data: getStrapiURL(apiUrl),
