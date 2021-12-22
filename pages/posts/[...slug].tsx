@@ -4,6 +4,7 @@ import {
   notFound,
   getLocalizedParams,
   getStrapiMedia,
+  fetchAPI,
 } from "lib/api"
 import Title from "components/atoms/title"
 import Image from "next/image"
@@ -35,11 +36,19 @@ const DynamicBlock = ({ postData }: Props) => {
   )
 }
 
-export async function getServerSideProps(context: any) {
-  const { slug } = getLocalizedParams(context.query)
+export async function getStaticPaths() {
+  const posts = await fetchAPI("/posts")
+  const paths = posts.map((post: any) => ({
+    params: { slug: [post.slug] },
+  }))
+  return { paths, fallback: false }
+}
+
+export async function getStaticProps({ params }: ParamsProps) {
+  const query = Object.entries(params).length === 0 ? "" : params.slug[0]
 
   try {
-    const data = getCollectionType("posts", slug)
+    const data = getCollectionType("posts", query)
     const res = await fetch(data.data)
     const json = await res.json()
 
@@ -64,6 +73,12 @@ interface Props {
       width: number
       height: number
     }
+  }
+}
+
+interface ParamsProps {
+  params: {
+    slug: string
   }
 }
 

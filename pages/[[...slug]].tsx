@@ -23,7 +23,7 @@ export async function getStaticPaths() {
   return { paths, fallback: false }
 }
 
-export async function getStaticProps({ params }: PropParams) {
+export async function getStaticProps({ params }: ParamsProps) {
   try {
     const query = Object.entries(params).length === 0 ? "" : params.slug[0]
 
@@ -40,7 +40,7 @@ export async function getStaticProps({ params }: PropParams) {
   }
 }
 
-interface PropParams {
+interface ParamsProps {
   params: {
     slug: string
   }
