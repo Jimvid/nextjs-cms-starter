@@ -6,16 +6,18 @@ import S from "./featuredText.module.scss"
 
 const FeaturedText = (p: FeaturedTextProps) => {
   return (
-    <section className={`section inner ${S.featuredText}`}>
-      <div>
-        <Title size="h2">{p.title}</Title>
-        <Markdown>{p.text}</Markdown>
-        <Link href={p.link.url}>{p.link.label}</Link>
+    <section className={`section inner`}>
+      <div className={S.featuredText}>
+        <div>
+          <Title size="h2">{p.title}</Title>
+          <Markdown>{p.text}</Markdown>
+          <Link href={p.link.url}>{p.link.label}</Link>
+        </div>
+        <span className={`${S.top_left} ${S.corner}`}></span>
+        <span className={`${S.top_right} ${S.corner}`}></span>
+        <span className={`${S.bottom_left} ${S.corner}`}></span>
+        <span className={`${S.bottom_right} ${S.corner}`}></span>
       </div>
-      <span className={`${S.top_left} ${S.corner}`}></span>
-      <span className={`${S.top_right} ${S.corner}`}></span>
-      <span className={`${S.bottom_left} ${S.corner}`}></span>
-      <span className={`${S.bottom_right} ${S.corner}`}></span>
     </section>
   )
 }

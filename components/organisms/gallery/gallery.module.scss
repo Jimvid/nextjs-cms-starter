@@ -39,36 +39,26 @@
   }
 }
 
+.imageContainer {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
 .imageCollection {
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
 .image {
-  display: initial;
+  display: flex;
   aspect-ratio: 4/3;
   border-radius: var(--border-radius);
-  border: 2px solid;
-  border-color: var(--black);
   overflow: hidden;
   cursor: pointer;
-  transition: ease 0.2s;
 
   img {
     border-radius: 0;
-  }
-
-  &:hover {
-    box-shadow: var(--elevation);
-    border-color: var(--brand-color);
-    border-width: 8px;
-  }
-}
-
-@include breakpoints.size("medium") {
-  .imageCollection {
-    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 

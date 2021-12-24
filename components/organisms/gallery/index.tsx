@@ -49,15 +49,17 @@ const Gallery = ({ imageCollections }: GalleryProps) => {
       )}
       <div className={S.imageCollection}>
         {imageCollections[page].images.map((image) => (
-          <Image
-            key={image.id}
-            onClick={() => openModal(image)}
-            className={S.image}
-            src={image.formats.medium.url}
-            layout="fill"
-            objectFit="cover"
-            sizes="33vw"
-          />
+          <div className={`${S.imageContainer} elevate-2`}>
+            <Image
+              key={image.id}
+              onClick={() => openModal(image)}
+              className={S.image}
+              src={image.formats.medium.url}
+              layout="fill"
+              objectFit="cover"
+              sizes="33vw"
+            />
+          </div>
         ))}
       </div>
       <Modal

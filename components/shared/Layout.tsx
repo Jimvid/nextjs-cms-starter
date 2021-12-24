@@ -8,7 +8,7 @@ const Layout = ({ children, seo }: LayoutProps) => {
     <>
       <Seo {...seo} />
       <Header />
-      <main className="inner section">{children}</main>
+      <main className="main">{children}</main>
       <Footer />
     </>
   )

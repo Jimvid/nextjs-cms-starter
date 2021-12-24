@@ -6,8 +6,8 @@ const Link = ({ href, children, icon = true }: Props) => {
   return (
     <NextLink href={href}>
       <a className={S.link}>
-        <div className={S.link__text}>{children}</div>
-        <Icon className={S.link__icon} icon={icon} />
+        <div className={S.text}>{children}</div>
+        <Icon className={S.icon} icon={icon} />
       </a>
     </NextLink>
   )

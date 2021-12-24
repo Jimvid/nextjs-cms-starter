@@ -4,13 +4,21 @@
   display: inline-flex;
   align-items: center;
 
-  &__text {
-    margin-right: 0.5rem;
-  }
-
-  &__icon {
-    > * {
-      fill: var(--brand-color);
+  &:hover {
+    & .icon {
+      transform: translateX(25%);
+      transition: ease-out 0.15s;
     }
+  }
+}
+
+.text {
+  margin-right: 0.5rem;
+}
+
+.icon {
+  transition: ease-in 0.3s;
+  > * {
+    fill: var(--brand-color);
   }
 }

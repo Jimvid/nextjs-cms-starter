@@ -2,6 +2,7 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: var(--white);
 }
 
 html,
@@ -14,6 +15,7 @@ body {
 
 body {
   position: relative;
+  color: var(--text-color);
   min-height: calc(100vh - 32px);
   display: block;
   position: relative;

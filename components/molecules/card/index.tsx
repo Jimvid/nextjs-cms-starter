@@ -6,7 +6,7 @@ import S from "./card.module.scss"
 
 const Card = ({ title, text, url }: CardProps) => {
   return (
-    <article className={S.card}>
+    <article className={`${S.card} elevate`}>
       <Title className={S.title} size="h3">
         {title}
       </Title>

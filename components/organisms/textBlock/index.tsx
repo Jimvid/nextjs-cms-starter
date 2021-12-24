@@ -28,15 +28,17 @@ const TextBlock = ({
         {link && <Link href={link.url}>{link.label}</Link>}
       </div>
       {media?.image && (
-        <Image
-          className={`${S.image} decorated-image`}
-          src={getStrapiMedia(media.image)}
-          width={media.image.width}
-          height={media.image.height}
-          objectFit="cover"
-          objectPosition={media.alignment}
-          aspectratio={media.aspectRatio}
-        />
+        <div className="decorated-image">
+          <Image
+            className={S.image}
+            src={getStrapiMedia(media.image)}
+            width={media.image.width}
+            height={media.image.height}
+            objectFit="cover"
+            objectPosition={media.alignment}
+            aspectratio={media.aspectRatio}
+          />
+        </div>
       )}
     </section>
   )

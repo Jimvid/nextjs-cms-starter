@@ -1,9 +1,24 @@
 :root {
+  // Colors
   --brand-color: #5b69e5;
-  --brand-contrast: #f6f9fc;
+  --brand-contrast-color: #f6f9fc;
   --black: #1a1a1a;
+  --dark-shade: #273746;
   --white: #ffffff;
+  --light-shade: #f7f7f7;
+  --text-color: #1a1a1a;
+
+  // Utilities
   --border-radius: 0.5rem;
-  --elevation: 0px 16px 20px rgba(0, 0, 0, 0.05),
+
+  // Box shadow / elevation
+  --elevation: 0px 16px 20px rgba(0, 0, 0, 0.025),
+    0px 8px 12px rgba(0, 0, 0, 0.05), 0px 1px 4px rgba(0, 0, 0, 0.05);
+  --elevation-1: 0px 16px 20px rgba(0, 0, 0, 0.05),
     0px 8px 12px rgba(0, 0, 0, 0.1), 0px 1px 4px rgba(0, 0, 0, 0.15);
+
+  --elevation-2: 0px 16px 20px rgba(0, 0, 0, 0.1),
+    0px 8px 12px rgba(0, 0, 0, 0.15), 0px 1px 4px rgba(0, 0, 0, 0.25);
+  --elevation-3: 0px 16px 20px rgba(0, 0, 0, 0.2),
+    0px 8px 12px rgba(0, 0, 0, 0.3), 0px 1px 4px rgba(0, 0, 0, 0.45);
 }
