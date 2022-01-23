@@ -3,7 +3,6 @@ import { ImageProps } from "types/global"
 import Modal from "components/molecules/modal"
 import Title from "components/atoms/title"
 import Image from "components/atoms/image"
-import NextImage from "next/image"
 import S from "./gallery.module.scss"
 
 const Gallery = ({ imageCollections }: GalleryProps) => {
@@ -49,9 +48,8 @@ const Gallery = ({ imageCollections }: GalleryProps) => {
       )}
       <div className={S.imageCollection}>
         {imageCollections[page].images.map((image) => (
-          <div className={`${S.imageContainer} elevate-2`}>
+          <div key={image.id} className={`${S.imageContainer} elevate-2`}>
             <Image
-              key={image.id}
               onClick={() => openModal(image)}
               className={S.image}
               src={image.formats.medium.url}
@@ -76,6 +74,7 @@ const Gallery = ({ imageCollections }: GalleryProps) => {
             width={modalImage.width}
             height={modalImage.height}
             objectFit="contain"
+            objectPosition={"center"}
             sizes="33vw"
           />
         ) : (

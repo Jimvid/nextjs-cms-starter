@@ -1,18 +1,17 @@
-import {
-  getCollectionType,
-  notFound,
-  getLocalizedParams,
-  fetchAPI,
-} from "lib/api"
+import { getCollectionType, notFound, fetchAPI } from "lib/api"
 import { SeoDetails } from "components/shared/Seo"
-import DynamicZone from "components/shared/DynamicZone"
+import DynamicZone, { ComponentProps } from "components/shared/DynamicZone"
 import Layout from "components/shared/Layout"
 
-const DynamicBlock = ({ pageData }: Props) => (
-  <Layout seo={pageData.seo}>
-    <DynamicZone components={pageData.dynamicZone} />
-  </Layout>
-)
+const DynamicBlock = ({ pageData }: Props) => {
+  console.log(pageData.dynamicZone)
+
+  return (
+    <Layout seo={pageData.seo}>
+      <DynamicZone components={pageData.dynamicZone} />
+    </Layout>
+  )
+}
 
 export async function getStaticPaths() {
   const pages = await fetchAPI("/pages")
@@ -49,7 +48,7 @@ interface ParamsProps {
 interface Props {
   pageData: {
     seo: SeoDetails
-    dynamicZone: any[]
+    dynamicZone: ComponentProps[]
   }
 }
 

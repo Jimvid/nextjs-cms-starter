@@ -1,35 +1,26 @@
 import Markdown from "react-markdown"
-import {
-  getCollectionType,
-  notFound,
-  getLocalizedParams,
-  getStrapiMedia,
-  fetchAPI,
-} from "lib/api"
+import { getCollectionType, notFound, getStrapiMedia, fetchAPI } from "lib/api"
 import Title from "components/atoms/title"
-import Image from "next/image"
 import Layout from "components/shared/Layout"
 import { SeoDetails } from "components/shared/Seo"
 import S from "./root.module.scss"
+import DynamicZone, { ComponentProps } from "components/shared/DynamicZone"
 
 const DynamicBlock = ({ postData }: Props) => {
-  const { title, shortText, longText, seo, image } = postData
+  const { title, shortText, longText, seo, dynamicZone } = postData
+
+  console.log(dynamicZone)
 
   return (
     <Layout seo={seo}>
       <section className="inner">
-        <Title size="h2">{title}</Title>
-        <Markdown>{shortText}</Markdown>
-        {image?.url && (
-          <div className={S.imageWrapper}>
-            <Image
-              className={S.image}
-              src={getStrapiMedia(image.url) || ""}
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-        )}
+        <div className={S.intro}>
+          <Title size="h2">{title}</Title>
+          <Markdown>{shortText}</Markdown>
+        </div>
+        <div className={S.dynamicZoneWrapper}>
+          <DynamicZone components={dynamicZone} />
+        </div>
         <Markdown>{longText}</Markdown>
       </section>
     </Layout>
@@ -68,11 +59,7 @@ interface Props {
     title: string
     shortText: string
     longText: string
-    image: {
-      url: string
-      width: number
-      height: number
-    }
+    dynamicZone: ComponentProps[]
   }
 }
 

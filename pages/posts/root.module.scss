@@ -1,14 +1,14 @@
-.imageWrapper {
-  max-width: 320px;
-  width: 100%;
-  position: relative;
-  border-radius: 8px;
-  aspect-ratio: 16/9;
-  .image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    outline: 2px solid #1a1a1a;
-    outline-offset: -2px;
+.intro {
+  p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  padding-bottom: 3rem;
+}
+
+.dynamicZoneWrapper {
+  > section {
+    padding-bottom: 3rem;
+    padding-top: 0rem;
   }
 }

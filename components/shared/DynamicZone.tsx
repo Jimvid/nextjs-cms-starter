@@ -15,7 +15,7 @@ import FeaturedText, {
 import RatingList, { RatingListProps } from "components/organisms/ratingList"
 // Check which component that should be rendered
 
-const Dynamic = (p: Component) => {
+const Dynamic = (p: ComponentProps) => {
   switch (p.__component) {
     case "organisms.text":
       return <TextBlock {...p} />
@@ -39,9 +39,9 @@ const Dynamic = (p: Component) => {
 }
 
 // Render the entire dynamic zone
-const DynamicZone = ({ components }: Props) => (
+const DynamicZone = ({ components }: DynamicZoneProps) => (
   <Fragment>
-    {components.map((component: Component) => {
+    {components.map((component: ComponentProps) => {
       return (
         <Dynamic key={component.__component + component.id} {...component} />
       )
@@ -50,13 +50,13 @@ const DynamicZone = ({ components }: Props) => (
 )
 
 // Types
-interface Props {
-  components: any[]
+export interface DynamicZoneProps {
+  components: ComponentProps[]
 }
 
 // #TODO
 // Implement a better solution then this
-interface Component
+export interface ComponentProps
   extends TextBlockProps,
     BlogPostListProps,
     CardListProps,
