@@ -52,7 +52,7 @@ const Gallery = ({ imageCollections }: GalleryProps) => {
             <Image
               onClick={() => openModal(image)}
               className={S.image}
-              src={image.formats.medium.url}
+              src={image.formats?.medium?.url || image.url}
               layout="fill"
               objectFit="cover"
               sizes="33vw"
@@ -69,7 +69,7 @@ const Gallery = ({ imageCollections }: GalleryProps) => {
         {modalImage ? (
           <Image
             className={S.modalContent}
-            src={modalImage.formats.large.url}
+            src={modalImage?.formats?.large?.url || modalImage.url}
             layout="responsive"
             width={modalImage.width}
             height={modalImage.height}

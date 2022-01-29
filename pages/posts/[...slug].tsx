@@ -9,8 +9,6 @@ import DynamicZone, { ComponentProps } from "components/shared/DynamicZone"
 const DynamicBlock = ({ postData }: Props) => {
   const { title, shortText, longText, seo, dynamicZone } = postData
 
-  console.log(dynamicZone)
-
   return (
     <Layout seo={seo}>
       <section className="inner">
