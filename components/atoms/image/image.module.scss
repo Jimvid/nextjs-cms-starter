@@ -8,12 +8,6 @@
   > div {
     border-radius: var(--border-radius);
   }
-
-  // Default background color when loading
-  // Else decorated images look strange on load
-  img {
-    background-color: var(--brand-contrast-color);
-  }
 }
 
 .landscape {
