@@ -5,6 +5,10 @@ import BlogPost, { Props as BlogPostProps } from "components/molecules/blogPost"
 import S from "./blogPostList.module.scss"
 
 const BlogPostList = ({ title, text, posts }: BlogPostListProps) => {
+  const sortedByPublishDate = posts.sort((a, b) =>
+    a.published_at < b.published_at ? 1 : -1
+  )
+
   // TODO: If posts is empty fetch all posts
   return (
     <section>
@@ -15,7 +19,7 @@ const BlogPostList = ({ title, text, posts }: BlogPostListProps) => {
         </div>
       )}
       <ul>
-        {posts.map((post: BlogPostProps, index) => (
+        {sortedByPublishDate.map((post: BlogPostProps, index) => (
           <li key={`blog-post-${index}`}>
             <BlogPost {...post} />
             <Divider />

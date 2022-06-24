@@ -34,6 +34,7 @@ export interface Props {
   title: string
   shortText: string
   slug: string
+  published_at: string
   image: {
     url: string
     width: number
