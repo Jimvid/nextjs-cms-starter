@@ -11,50 +11,50 @@ import "../assets/css/main.scss"
 export const GlobalContext = createContext({})
 
 const Site = ({ Component, pageProps }: AppProps) => {
-  const { global } = pageProps
+    const { global } = pageProps as any
 
-  return (
-    <>
-      <Head>
-        <link
-          rel="shortcut icon"
-          href={getStrapiMedia(global.favicon) || "/favicon.ico"}
-        />
-      </Head>
-      <GlobalContext.Provider value={global}>
-        <Component {...pageProps} />
-      </GlobalContext.Provider>
-    </>
-  )
+    return (
+        <>
+            <Head>
+                <link
+                    rel="shortcut icon"
+                    href={getStrapiMedia(global.favicon) || "/favicon.ico"}
+                />
+            </Head>
+            <GlobalContext.Provider value={global}>
+                <Component {...pageProps} />
+            </GlobalContext.Provider>
+        </>
+    )
 }
 
 // getInitialProps disables automatic static optimization for pages
 //  that don't have getStaticProps.
 Site.getInitialProps = async (context: any) => {
-  // Calls page's `getInitialProps` and fills `appProps.pageProps`
-  const appProps = await App.getInitialProps(context)
+    // Calls page's `getInitialProps` and fills `appProps.pageProps`
+    const appProps = await App.getInitialProps(context)
 
-  // Fetch global site settings from Strapi
-  const strapiGlobal = await fetchAPI("/global")
+    // Fetch global site settings from Strapi
+    const strapiGlobal = await fetchAPI("/global")
 
-  // Fetch alla pages and return those that
-  // should be displayed in the menu
-  const pages = await fetchAPI("/pages")
+    // Fetch alla pages and return those that
+    // should be displayed in the menu
+    const pages = await fetchAPI("/pages")
 
-  const menu = Array.isArray(pages)
-    ? pages.filter((menuLink: MenuLink) => menuLink.inMenu)
-    : []
+    const menu = Array.isArray(pages)
+        ? pages.filter((menuLink: MenuLink) => menuLink.inMenu)
+        : []
 
-  const global = { ...strapiGlobal, menu }
-  // Pass the data to our page via props
-  return { ...appProps, pageProps: { global } }
+    const global = { ...strapiGlobal, menu }
+    // Pass the data to our page via props
+    return { ...appProps, pageProps: { global } }
 }
 
 // Types
 interface MenuLink {
-  inMenu: boolean
-  slug: string
-  title: string
+    inMenu: boolean
+    slug: string
+    title: string
 }
 
 export default Site
